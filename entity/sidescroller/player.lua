@@ -13,9 +13,9 @@ Player.name = 'player'
 function Player:init(game, entity)
   --self.image = love.graphics.newImage()
   -- Position.
-  self.pos = Vector(32, 32)-- Vec(entity.x, entity.y)
+  self.pos = Vector(entity.x, entity.y)
   -- Dimensions
-  self.dim = Vector(32, 32)--Vector(entity.width, entity.height)
+  self.dim = Vector(entity.width, entity.height)
   self.hitbox = { pos = self.pos:clone(), dim = self.dim:clone() }
   self.speed = 100 -- running speed, in m/s
   self.ySpeed = 0

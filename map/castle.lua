@@ -8,7 +8,7 @@ return {
   height = 15,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 6,
+  nextobjectid = 9,
   properties = {},
   tilesets = {
     {
@@ -111,6 +111,22 @@ return {
       data = "eJzLYGBgyBjFo3gUD0lMLhgoeym1mxpgIOwk1R2jgL4AANDRddE="
     },
     {
+      type = "tilelayer",
+      name = "door",
+      x = 0,
+      y = 0,
+      width = 30,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFo2AUUAoODrQDRsEoGAVkAwDa5gDC"
+    },
+    {
       type = "objectgroup",
       name = "object",
       visible = false,
@@ -133,6 +149,22 @@ return {
           properties = {
             ["event"] = "",
             ["file"] = "king.lua"
+          }
+        },
+        {
+          id = 7,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 0,
+          y = 224,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["event"] = "",
+            ["warp"] = "'overworld',480,256"
           }
         }
       }
@@ -186,7 +218,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFo2AUDFVwlkw8UPZSajcl9pJrPzXsJNUdtLJzFGPHAFWegCE="
+      data = "eJxjYBgFo2AUDFVwlkw8EGAw2E2O/dRwM6lxQKuwGqxpY6ABAIpGHNU="
     }
   }
 }

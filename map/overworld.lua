@@ -133,7 +133,7 @@ return {
           visible = true,
           properties = {
             ["event"] = "",
-            ["warp"] = "'castle',0,0"
+            ["warp"] = "'castle',32,224"
           }
         },
         {
@@ -209,7 +209,7 @@ return {
       y = 0,
       width = 27,
       height = 22,
-      visible = true,
+      visible = false,
       opacity = 0.5,
       offsetx = 0,
       offsety = 0,

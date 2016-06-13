@@ -30,7 +30,7 @@
   <object id="50" x="480" y="224" width="32" height="32">
    <properties>
     <property name="event" value=""/>
-    <property name="warp" value="'castle',0,0"/>
+    <property name="warp" value="'castle',32,224"/>
    </properties>
   </object>
   <object id="53" x="320" y="160" width="32" height="32">
@@ -55,7 +55,7 @@
    eJzbw0AfsBeI94zaNWrXqF2jdo3aNWrXqF2jdg0juwCnviBn
   </data>
  </layer>
- <layer name="special" width="27" height="22" opacity="0.5">
+ <layer name="special" width="27" height="22" visible="0" opacity="0.5">
   <properties>
    <property name="collidable" value="false"/>
    <property name="special" value="true"/>
