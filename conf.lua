@@ -7,4 +7,7 @@
 
 -- love.conf configures Love2D by setting values in the 't' table.
 function love.conf(t)
+  t.console = true
+  t.window.width = 640
+  t.window.height = 480
 end

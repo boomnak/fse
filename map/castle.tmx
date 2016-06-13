@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="32" tileheight="32" nextobjectid="6">
+ <tileset firstgid="1" name="rpgtk" tilewidth="32" tileheight="32" tilecount="204" columns="17">
+  <image source="../img/tst/rpgtk.png" width="544" height="384"/>
+ </tileset>
+ <tileset firstgid="205" name="special" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../img/tst/triggers.png" width="96" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="solid" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="208" name="entities" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../img/tst/entities.png" width="64" height="32"/>
+ </tileset>
+ <layer name="bg" width="30" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzjYmBg4BrFo3gUj+JRPIpHKAYA+hMRlQ==
+  </data>
+ </layer>
+ <layer name="black" width="30" height="15" opacity="0.5">
+  <data encoding="base64" compression="zlib">
+   eJzLYGBgyBjFo3gUD0lMLhgoeym1mxpgIOwk1R2jgL4AANDRddE=
+  </data>
+ </layer>
+ <objectgroup name="object" visible="0">
+  <object id="5" x="800" y="352" width="32" height="32">
+   <properties>
+    <property name="event" value=""/>
+    <property name="file" value="king.lua"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="entities" width="30" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMNDgwkA7YAQDADvXANE=
+  </data>
+ </layer>
+ <layer name="fg" width="30" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDFUQSCYeKHsptZsSe8m1nxp2kuoOWtk5irFjAA+cMqE=
+  </data>
+ </layer>
+ <layer name="special" width="30" height="15" visible="0" opacity="0.5">
+  <properties>
+   <property name="collidable" value="false"/>
+   <property name="special" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUDFVwlkw8UPZSajcl9pJrPzXsJNUdtLJzFGPHAFWegCE=
+  </data>
+ </layer>
+</map>

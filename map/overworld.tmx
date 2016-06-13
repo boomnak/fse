@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="27" height="22" tilewidth="32" tileheight="32" nextobjectid="57">
+ <tileset firstgid="1" name="RPG Basic" tilewidth="32" tileheight="32" tilecount="204" columns="17">
+  <image source="../img/tst/rpgtk.png" width="544" height="384"/>
+ </tileset>
+ <tileset firstgid="205" name="Special" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../img/tst/triggers.png" trans="ffffff" width="96" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="solid" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="208" name="entities" tilewidth="32" tileheight="32" tilecount="2" columns="2">
+  <image source="../img/tst/entities.png" width="64" height="32"/>
+ </tileset>
+ <layer name="ground" width="27" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzV1EEKgCAQBVAL5lxFBNFhOkkdqqPlIkEGdf4fJGjxd6Ov0UkJIQwqRyO6tpQpZixESAsx15j5zWZYiIf0l9wts1gPdfSZSsNjrdpeiJWbt/HtQlqWyVhpnyVm72BdgJXPf6nGY/eyEO+vVr7+BL3av9yjv1pta+ZZy6q1rNYd9LKsu2YsPR/e82PWsBbTi9fynNvXFvrOe+eutM5655G+kPnTb9QDMekfbA==
+  </data>
+ </layer>
+ <objectgroup name="object" visible="0">
+  <object id="49" x="416" y="352" width="32" height="32">
+   <properties>
+    <property name="event" value=""/>
+    <property name="file" value="test.lua"/>
+   </properties>
+  </object>
+  <object id="50" x="480" y="224" width="32" height="32">
+   <properties>
+    <property name="event" value=""/>
+    <property name="warp" value="'castle',0,0"/>
+   </properties>
+  </object>
+  <object id="53" x="320" y="160" width="32" height="32">
+   <properties>
+    <property name="event" value=""/>
+    <property name="warp" value="'overworld',128,64"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="over" width="27" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20Hb6AAAHgMCUgAAQ==
+  </data>
+ </layer>
+ <layer name="fadeoutud" width="27" height="22">
+  <data encoding="base64" compression="zlib">
+   eJztwzENAAAIA7D5FzWsoQKuNmmT9CkAwLV5vGcOKDA=
+  </data>
+ </layer>
+ <layer name="fadeoutlr" width="27" height="22">
+  <data encoding="base64" compression="zlib">
+   eJzbw0AfsBeI94zaNWrXqF2jdo3aNWrXqF2jdg0juwCnviBn
+  </data>
+ </layer>
+ <layer name="special" width="27" height="22" opacity="0.5">
+  <properties>
+   <property name="collidable" value="false"/>
+   <property name="special" value="true"/>
+  </properties>
+  <data encoding="base64" compression="zlib">
+   eJzV0cENACAIA0D2382d/BoTpC2IkcSXwCEOMxuNZw+lBq1n8yMr6sN4bGR2ifRkrTWXnR2ZWdmR1y9yui3FrrKU//rFQszXVsZDDNbyciqt070XyszM/pia7D/dsJS9dVvqXMqbWKf6TNU+Ofg=
+  </data>
+ </layer>
+</map>
