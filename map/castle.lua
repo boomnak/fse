@@ -102,7 +102,7 @@ return {
       width = 30,
       height = 15,
       visible = true,
-      opacity = 0.5,
+      opacity = 0.72,
       offsetx = 0,
       offsety = 0,
       properties = {},

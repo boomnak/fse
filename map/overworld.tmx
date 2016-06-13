@@ -25,6 +25,7 @@
    <properties>
     <property name="event" value=""/>
     <property name="file" value="test.lua"/>
+    <property name="runOnce" value=""/>
    </properties>
   </object>
   <object id="50" x="480" y="224" width="32" height="32">

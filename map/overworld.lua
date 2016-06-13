@@ -117,7 +117,8 @@ return {
           visible = true,
           properties = {
             ["event"] = "",
-            ["file"] = "test.lua"
+            ["file"] = "test.lua",
+            ["runOnce"] = ""
           }
         },
         {

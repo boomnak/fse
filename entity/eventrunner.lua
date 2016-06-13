@@ -15,6 +15,10 @@ function EventRunner:init(game, object)
   self.warp = object.properties.warp
   self.name = object.properties.name
   
+  if object.properties.runOnce then
+    self.runOnce = true
+  end
+  
   -- Position
   self.pos = Vector(object.x, object.y)
   -- Dimensions
@@ -47,7 +51,11 @@ function EventRunner:onPlayer()
 end
 
 function EventRunner:eventDone()
-  self.isRunning = false
+  -- If the event is set to only run once, then don't set isRunning to
+  -- false; this makes the entity never start the event again.
+  if not self.runOnce then
+    self.isRunning = false
+  end
 end
 
 return EventRunner

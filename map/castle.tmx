@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="32" tileheight="32" nextobjectid="9">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="32" tileheight="32" nextobjectid="10">
  <tileset firstgid="1" name="rpgtk" tilewidth="32" tileheight="32" tilecount="204" columns="17">
   <image source="../img/tst/rpgtk.png" width="544" height="384"/>
  </tileset>
@@ -20,7 +20,7 @@
    eJzjYmBg4BrFo3gUj+JRPIpHKAYA+hMRlQ==
   </data>
  </layer>
- <layer name="black" width="30" height="15" opacity="0.5">
+ <layer name="black" width="30" height="15" opacity="0.72">
   <data encoding="base64" compression="zlib">
    eJzLYGBgyBjFo3gUD0lMLhgoeym1mxpgIOwk1R2jgL4AANDRddE=
   </data>
@@ -38,6 +38,12 @@
    </properties>
   </object>
   <object id="7" x="0" y="224" width="32" height="32">
+   <properties>
+    <property name="event" value=""/>
+    <property name="warp" value="'overworld',480,256"/>
+   </properties>
+  </object>
+  <object id="9" x="0" y="224" width="32" height="32">
    <properties>
     <property name="event" value=""/>
     <property name="warp" value="'overworld',480,256"/>
