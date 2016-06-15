@@ -25,7 +25,10 @@ function love.load(arg)
     height = 480,
     sx = love.graphics.getWidth() / 640,
     sy = love.graphics.getHeight() / 480,
+    font = love.graphics.newFont('font/FreeMono.ttf', 16)
   }
+  
+  love.graphics.setFont(game.font)
   
   -- Set up some utility functions.
   function game:switchMap(map, x, y)

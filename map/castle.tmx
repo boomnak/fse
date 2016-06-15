@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="32" tileheight="32" nextobjectid="10">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="22" height="15" tilewidth="32" tileheight="32" nextobjectid="11">
  <tileset firstgid="1" name="rpgtk" tilewidth="32" tileheight="32" tilecount="204" columns="17">
   <image source="../img/tst/rpgtk.png" width="544" height="384"/>
  </tileset>
@@ -15,54 +15,62 @@
  <tileset firstgid="208" name="entities" tilewidth="32" tileheight="32" tilecount="2" columns="2">
   <image source="../img/tst/entities.png" width="64" height="32"/>
  </tileset>
- <layer name="bg" width="30" height="15">
+ <tileset firstgid="210" name="newset01" tilewidth="32" tileheight="32" tilecount="60" columns="15">
+  <image source="../img/tst/newset01.png" width="480" height="128"/>
+ </tileset>
+ <layer name="bg" width="22" height="15">
   <data encoding="base64" compression="zlib">
-   eJzjYmBg4BrFo3gUj+JRPIpHKAYA+hMRlQ==
+   eJy7ysDA8InK+CoUj5o7ai61zMUGYObiAqSaR6y5xJiPLxxIBbQyl5Ad1DAXGxiK5gIAFTbJvQ==
   </data>
  </layer>
- <layer name="black" width="30" height="15" opacity="0.72">
+ <layer name="door" width="22" height="15">
   <data encoding="base64" compression="zlib">
-   eJzLYGBgyBjFo3gUD0lMLhgoeym1mxpgIOwk1R2jgL4AANDRddE=
+   eJxjYBgFowAV3KaRua9oZO4oGAW0BgAnZwHG
   </data>
  </layer>
- <layer name="door" width="30" height="15">
+ <layer name="entities" width="22" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUUAoODrQDRsEoGAVkAwDa5gDC
+   eJxjYBgFo4A24MJAO2AUjAIqAQBLBgDR
   </data>
  </layer>
  <objectgroup name="object" visible="0">
-  <object id="5" x="800" y="352" width="32" height="32">
-   <properties>
-    <property name="event" value=""/>
-    <property name="file" value="king.lua"/>
-    <property name="oncePerCollision" value=""/>
-   </properties>
-  </object>
-  <object id="9" x="0" y="224" width="32" height="32">
+  <object id="9" name="door" x="32" y="192" width="32" height="64">
    <properties>
     <property name="event" value=""/>
     <property name="runOnKey" value="up"/>
     <property name="warp" value="'overworld',480,256"/>
    </properties>
   </object>
+  <object id="10" name="king" x="608" y="192" width="32" height="32">
+   <properties>
+    <property name="event" value=""/>
+    <property name="file" value="king.lua"/>
+    <property name="oncePerCollision" value=""/>
+   </properties>
+  </object>
  </objectgroup>
- <layer name="entities" width="30" height="15">
+ <layer name="fg" width="22" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUjIJRMNDgwkA7YAQDADvXANE=
+   eJxjYBgFo2Dwg6tYMD65q+gGEGEeseYSYz65dlNiD6nmUiOsKLFrKJkLAKj/XgY=
   </data>
  </layer>
- <layer name="fg" width="30" height="15">
+ <layer name="fadelr" width="22" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUDFUQSCYeKHsptZsSe8m1nxp2kuoOWtk5irFjAA+cMqE=
+   eJzbw0B9sBeI94yaO2ruqLmj5g4TcwElgxYY
   </data>
  </layer>
- <layer name="special" width="30" height="15" visible="0" opacity="0.5">
+ <layer name="fadeud" width="22" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzbx8DAsI8GeBSMglEwCugN9tMIAwCAeCC/
+  </data>
+ </layer>
+ <layer name="special" width="22" height="15" visible="0" opacity="0.5">
   <properties>
    <property name="collidable" value="false"/>
    <property name="special" value="true"/>
   </properties>
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUDFVwlkw8EGAw2E2O/dRwM6lxQKuwGqxpY6ABAIpGHNU=
+   eJw7y8DAcJZGmNpg1NyRay610x+5eilJ38ToIScfkesWQnbQMs6GGgAAjvE+dw==
   </data>
  </layer>
 </map>

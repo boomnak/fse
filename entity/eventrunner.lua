@@ -25,7 +25,7 @@ function EventRunner:init(game, object)
   -- enters it, rather than repeating.
   if object.properties.oncePerCollision then
     self.oncePerCollision = true
-    self.collidingWithPlayer = 0
+    self.collidedWithPlayer = false
   end
   
   -- Position
@@ -38,9 +38,11 @@ end
 
 function EventRunner:update(dt)
   -- Update the entity, and check for collisions with the player.
-  local _, _, cols, len = self.game.world:move(self, self.pos.x, self.pos.y)
+  local _, _, cols, len = self.game.world:move(
+    self, self.pos.x, self.pos.y, function() return 'cross' end)
   
-  if self.oncePerCollision == true then
+  if self.oncePerCollision then
+    -- Check if any collisions were with the player.
     local hitPlayer = false
     for i = 1,len do
       if cols[i].other.name == 'player' then
@@ -48,9 +50,8 @@ function EventRunner:update(dt)
       end
     end
     if not hitPlayer then
-      self.collidingWithPlayer = 0
-    else
-      self.collidingWithPlayer = self.collidingWithPlayer + 1
+      -- If not, then set the entity to be able to run again.
+      self.collidedWithPlayer = false
     end
   end
 end
@@ -66,7 +67,9 @@ function EventRunner:onPlayer()
     return
   end
   
-  if self.oncePerCollision == true and self.collidingWithPlayer > 1 then
+  if self.oncePerCollision  and self.collidedWithPlayer then
+    -- If the player is still colliding with the event after the event
+    -- has already run, don't run the event again.
     return
   end
   
@@ -82,6 +85,9 @@ function EventRunner:onPlayer()
     -- Switch maps.
     self.game:switchMap(map, x, y)
   end
+  
+  -- Stop the event from running again until the player leaves it.
+  self.collidedWithPlayer = true
 end
 
 function EventRunner:eventDone()

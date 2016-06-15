@@ -15,6 +15,13 @@ function Event:init(game)
   self.drawFuncs = {}
   
   self.game = game
+  
+  -- Create a new messagebox object, if there is none.
+  if not self.game.mb then
+    self.game.mb = MessageBox(self.game)
+    self.mb = self.game.mb
+    self.mbVisible = false
+  end
 end
 
 function Event:addNew(file)
@@ -52,12 +59,20 @@ function Event:update(dt)
       table.remove(self.events, i)
     end
   end
+  
+  -- Update the messagebox.
+  self.mb:update(dt)
 end
 
 function Event:draw()
   -- Draw every draw function that has been set.
   for i = 1,#self.drawFuncs do
     self.drawFuncs[i]()
+  end
+  
+  -- If the messagebox is visible, draw it.
+  if self.mbVisible then
+    self.mb:draw()
   end
 end
 
@@ -104,38 +119,26 @@ function SB.freezeEntities(name)
   end
 end
 
--- Functions that apply to the whole game.
-function SB.message(text)
-  -- Append its draw function to the drawFuncs table.
-  local newDrawFunc = #Event.drawFuncs + 1
-  Event.drawFuncs[newDrawFunc] = function()
-    local prevColor = { love.graphics.getColor() }
-    -- Draw a black rectangle.
-    love.graphics.setColor(0, 0, 0, 127)
-    love.graphics.rectangle(
-      'fill', 0, 0, Event.game.width, Event.game.height/4)
-    -- Write the text.
-    love.graphics.setColor(255, 255, 255, 255)
-    love.graphics.print(text, 10, 10)
-    
-    love.graphics.setColor(prevColor)
-  end
+-- Functions that apply to the messagebox.
+function SB.addMessage(text)
+  -- Add a message to the messagebox.
+  self.mbVisible = true
   
-  -- If the player is holding down the key, make them click
-  -- it again before they can continue.
-  local keyHeld = false
-  if InputMan:down('interact') then keyHeld = true end
-  
-  repeat
-    coroutine.yield()
-    if keyHeld and not InputMan:down('interact') then
-      -- If the user lets go of the interact key, let them continue
-      -- in the dialogue.
-      keyHeld = false
-    end
-  until InputMan:down('interact') and not keyHeld
-  
-  table.remove(Event.drawFuncs, newDrawFunc)
+  self.mb:addText(text)
+end
+
+function SB.clearMessage()
+  -- Clear the messagebox of text.
+  self.mb:clear()
+end
+
+function SB.showMessage()
+  self.mbVisible = true
+end
+
+function SB.hideMessage()
+  -- Hide the messagebox.
+  self.mbVisible = false
 end
 
 function SB.endEvent(eventNumber)
@@ -190,6 +193,29 @@ function SB.moveTo(entity, x, y, time)
     entity.pos.x = ox + dx * (t / time)
     entity.pos.y = oy + dy * (t / time)
   end
+end
+
+function SB.waitFor(key)
+  -- Wait until the player hits 'key.'
+  key = key or 'interact' -- key defaults to interact.
+  -- Set the messagebox to show a 'press key...' message.
+  Event.mb:pause()
+  
+  -- If the player is holding down the key, make them click
+  -- it again before they can continue.
+  local keyHeld = false
+  if InputMan:down(key) then keyHeld = true end
+  
+  repeat
+    coroutine.yield()
+    if keyHeld and not InputMan:down(key) then
+      -- If the user lets go of the interact key, let them continue.
+      keyHeld = false
+    end
+  until InputMan:down(key) and not keyHeld
+  
+  -- Disable the messagebox pause message.
+  Event.mb:unpause()
 end
 
 return Event
