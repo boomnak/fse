@@ -1,0 +1,16 @@
+[submodule "bump"]
+	path = lib/bump
+	url = git://github.com/kikito/bump.lua
+[submodule "sti"]
+	path = lib/sti
+	url = git://github.com/karai17/Simple-Tiled-Implementation
+[submodule "suit"]
+	path = lib/suit
+	url = git://github.com/vrld/SUIT
+[submodule "hump"]
+	path = lib/hump
+	url = git://github.com/vrld/hump
+[submodule "lume"]
+	path = lib/lume
+	url = git://github.com/rxi/lume
+
