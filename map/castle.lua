@@ -8,7 +8,7 @@ return {
   height = 15,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 9,
+  nextobjectid = 10,
   properties = {},
   tilesets = {
     {
@@ -148,11 +148,12 @@ return {
           visible = true,
           properties = {
             ["event"] = "",
-            ["file"] = "king.lua"
+            ["file"] = "king.lua",
+            ["oncePerCollision"] = ""
           }
         },
         {
-          id = 7,
+          id = 9,
           name = "",
           type = "",
           shape = "rectangle",
@@ -164,6 +165,7 @@ return {
           visible = true,
           properties = {
             ["event"] = "",
+            ["runOnKey"] = "up",
             ["warp"] = "'overworld',480,256"
           }
         }

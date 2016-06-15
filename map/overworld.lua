@@ -134,6 +134,7 @@ return {
           visible = true,
           properties = {
             ["event"] = "",
+            ["runOnKey"] = "interact",
             ["warp"] = "'castle',32,224"
           }
         },
