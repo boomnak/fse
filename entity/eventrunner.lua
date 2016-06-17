@@ -37,11 +37,11 @@ function EventRunner:init(game, object)
 end
 
 function EventRunner:update(dt)
-  -- Update the entity, and check for collisions with the player.
-  local _, _, cols, len = self.game.world:move(
-    self, self.pos.x, self.pos.y, function() return 'cross' end)
-  
   if self.oncePerCollision then
+    -- Update the entity, and check for collisions with the player.
+    local _, _, cols, len = self.game.world:move(
+      self, self.pos.x, self.pos.y, function() return 'cross' end)
+    
     -- Check if any collisions were with the player.
     local hitPlayer = false
     for i = 1,len do

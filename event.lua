@@ -1,5 +1,8 @@
 --
 
+local GS = require 'lib.hump.gamestate'
+
+local Battle = require 'state.battle'
 local InputMan = require 'inputman'
 local MessageBox = require 'messagebox'
 
@@ -11,17 +14,15 @@ function Event:init(game)
   -- Initialize the events table, which holds every event that is
   -- currently running.
   self.events = {}
-  -- The drawables table holds all objects that need drawn.
-  self.drawFuncs = {}
   
   self.game = game
   
   -- Create a new messagebox object, if there is none.
-  if not self.game.mb then
+  --if not self.game.mb then
     self.game.mb = MessageBox(self.game)
     self.mb = self.game.mb
     self.mbVisible = false
-  end
+  --end
 end
 
 function Event:addNew(file)
@@ -65,11 +66,6 @@ function Event:update(dt)
 end
 
 function Event:draw()
-  -- Draw every draw function that has been set.
-  for i = 1,#self.drawFuncs do
-    self.drawFuncs[i]()
-  end
-  
   -- If the messagebox is visible, draw it.
   if self.mbVisible then
     self.mb:draw()
@@ -109,36 +105,42 @@ function SB.unfreezeEntity(entity)
 end
 
 -- Functions that apply to multiple entities.
-function SB.getEntities(name)
+function SB.getEntities()
   return Event.game.entities
 end
-function SB.freezeEntities(name)
+function SB.freezeEntities()
   local e = Event.game.entities
   for i = 1,#e do
-    SB.freeze(e[i])
+    SB.freezeEntity(e[i])
+  end
+end
+function SB.unfreezeEntities()
+  local e = Event.game.entities
+  for i = 1,#e do
+    SB.unfreezeEntity(e[i])
   end
 end
 
 -- Functions that apply to the messagebox.
 function SB.addMessage(text)
   -- Add a message to the messagebox.
-  self.mbVisible = true
+  Event.mbVisible = true
   
-  self.mb:addText(text)
+  Event.mb:addText(text)
 end
 
 function SB.clearMessage()
   -- Clear the messagebox of text.
-  self.mb:clear()
+  Event.mb:clear()
 end
 
 function SB.showMessage()
-  self.mbVisible = true
+  Event.mbVisible = true
 end
 
 function SB.hideMessage()
   -- Hide the messagebox.
-  self.mbVisible = false
+  Event.mbVisible = false
 end
 
 function SB.endEvent(eventNumber)
@@ -216,6 +218,22 @@ function SB.waitFor(key)
   
   -- Disable the messagebox pause message.
   Event.mb:unpause()
+end
+
+function SB.down(key)
+  -- Return whether or not a key is held down.
+  coroutine.yield()
+  if InputMan:down(key) then
+    return true
+  else
+    return false
+  end
+end
+
+function SB.battle(enemies)
+  -- Start a battle with enemies.
+  GS.push(Battle, Event.game, enemies)
+  coroutine.yield()
 end
 
 return Event

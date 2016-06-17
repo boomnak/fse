@@ -9,6 +9,7 @@
 local GS = require 'lib.hump.gamestate'
 local suit = require 'lib.suit'
 
+local Battle = require 'state.battle'
 local Overworld = require 'state.overworld'
 local Search = require 'search'
 
@@ -44,6 +45,7 @@ function Intro:update(dt)
   
   if suit.Button('Play Game', suit.layout:row(200, 30)).hit then
     GS.switch(Overworld, self.game)
+    --GS.switch(Battle, self.game, { 'slug' })
   end
 end
 

@@ -8,7 +8,7 @@ return {
   height = 15,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 11,
+  nextobjectid = 13,
   properties = {},
   tilesets = {
     {
@@ -53,6 +53,13 @@ return {
           properties = {
             ["collidable"] = "true",
             ["solid"] = "true"
+          }
+        },
+        {
+          id = 2,
+          properties = {
+            ["collidable"] = "true",
+            ["ladder"] = "true"
           }
         }
       }
@@ -143,12 +150,12 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFo4A24MJAO2AUjAIqAQBLBgDR"
+      data = "eJxjYBgFo4A24MJAO2AUkAwuDrQDBikAAC+tAaI="
     },
     {
       type = "objectgroup",
       name = "object",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -185,6 +192,23 @@ return {
           properties = {
             ["event"] = "",
             ["file"] = "king.lua",
+            ["oncePerCollision"] = ""
+          }
+        },
+        {
+          id = 11,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 576,
+          y = 352,
+          width = 32,
+          height = 32,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["event"] = "",
+            ["file"] = "slugfight.lua",
             ["oncePerCollision"] = ""
           }
         }
@@ -245,7 +269,7 @@ return {
       y = 0,
       width = 22,
       height = 15,
-      visible = false,
+      visible = true,
       opacity = 0.5,
       offsetx = 0,
       offsety = 0,
@@ -255,7 +279,7 @@ return {
       },
       encoding = "base64",
       compression = "zlib",
-      data = "eJw7y8DAcJZGmNpg1NyRay610x+5eilJ38ToIScfkesWQnbQMs6GGgAAjvE+dw=="
+      data = "eJw7y8DAcJZGmNpg1NyRay410995CvTiU3OeCD8QAtjcQg1zCdlDLXPx2UHLsoHWAAAR6EDk"
     }
   }
 }

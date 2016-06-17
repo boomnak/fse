@@ -7,7 +7,9 @@ local MessageBox = Class({})
 function MessageBox:init(game)
   self.game = game
   self.textLines = {}
+  self.maxLines = 5
   self.dt = 0
+  self.paused = false
 end
 
 function MessageBox:update(dt)
@@ -27,7 +29,10 @@ function MessageBox:draw()
   
   for i = 1, #self.textLines do
     -- Draw each line of text.
-    love.graphics.draw(self.textLines[i], 10, 10 + 30*i)
+    love.graphics.print(self.textLines[i], 10, 10 + 30*(i-1))
+  end
+  
+  if self.paused then
   end
   
   -- Reset the color.
@@ -35,7 +40,23 @@ function MessageBox:draw()
 end
 
 function MessageBox:addText(text)
+  self.textLines[#self.textLines + 1] = text
+end
 
-function MessageBox:addLine()
+function MessageBox:addLine(line)
+  self.textLines[#self.textLines + 1] = line
+end
+
+function MessageBox:clear()
+  self.textLines = {}
+end
+
+function MessageBox:pause()
+  self.paused = true
+end
+
+function MessageBox:unpause()
+  self.paused = false
+end
 
 return MessageBox

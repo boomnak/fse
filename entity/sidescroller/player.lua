@@ -19,6 +19,7 @@ function Player:init(game, entity)
   self.hitbox = { pos = self.pos:clone(), dim = self.dim:clone() }
   self.speed = 100 -- running speed, in m/s
   self.ySpeed = 0
+  self.onLadder = false -- Not on a ladder.
   
   self.game = game
   self.game.world:add(self, self.pos.x, self.pos.y, self.dim.x, self.dim.y)
@@ -34,14 +35,19 @@ function Player:update(dt)
   end
   self.canJump = false
   
-  -- apply gravity
-  self.ySpeed = self.ySpeed + 400*dt
-  goal.y = goal.y + self.ySpeed*dt
+  if self.onLadder then
+    goal.y = goal.y - self.speed*dt
+  else
+    -- apply gravity
+    self.ySpeed = self.ySpeed + 400*dt
+    goal.y = goal.y + self.ySpeed*dt
+  end
   
   local actualx, actualy, cols, len =
     self.game.world:move(self, goal.x, goal.y, self.filter)
   self.pos = Vector(actualx, actualy)
   
+  self.onLadder = false
   for i = 1,len do
     self:handleCollison(cols[i])
   end
@@ -64,6 +70,8 @@ function Player:filter(other)
     local prop = other.properties
     if prop.solid then
       return 'slide'
+    elseif prop.ladder then
+      return 'cross'
     end
   else
     return other.filterType or 'cross'
@@ -77,6 +85,9 @@ function Player:handleCollison(col)
     if prop.solid and col.normal.y == -1 then
       -- If standing on a platform, let the player jump.
       self.canJump = true
+    end
+    if prop.ladder and InputMan:down('up') then
+      self.onLadder = true
     end
 
   elseif col.other.onPlayer then

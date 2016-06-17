@@ -4,8 +4,8 @@ local Class = require 'lib.hump.class'
 
 local Slug = Class({
   -- Set up default stats that apply to all slugs.
-  attack = 2,
-  defense = 0,
+  attack = 1,
+  defence = 0,
   maxHP = 10,
   -- Drops is a table of the items an enemy could drop when it dies.
   drops = {
@@ -31,25 +31,21 @@ function Slug:update(dt)
   -- be updated.
 end
 
-function Slug:draw(x, y)
+function Slug:draw(enemyNum)
+  love.graphics.setColor(0, 255, 0)
+  love.graphics.circle('fill', 480, 20, 20)
 end
 
--- AI for the slug during it's turn to fight.
-function Slug:takeTurn()
-  -- Find the opponent with the most health and attack them.
-  local opponentToAttack, highestHP = 0, 0
-  local opponents = self.battle.opponents
-  for i = 1, #opponents do
-    if opponents[i].HP > highestHP or lowestHP == 0 then
-      highestHP = opponents[i].HP
-      opponentToAttack = opponents[i]
-    end
-  end
-  
-  opponentToAttack.hp = opponentToAttack.hp - self.attack
-  
+function Slug:takeTurn(player)
+  -- AI for the slug during it's turn to fight.
+  player.stats.HP = player.stats.HP - self.attack + player.stats.defence
   -- Tell the battle system that the slugs turn is over.
   return 'done'
+end
+
+function Slug:onDeath()
+  -- Return what the player gets when the slug dies.
+  return self.drops
 end
 
 return Slug
