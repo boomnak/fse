@@ -13,16 +13,18 @@ function Event:init(game)
   
   -- Initialize the events table, which holds every event that is
   -- currently running.
-  self.events = {}
+  if not self.events then
+    self.events = {}
+  end
   
   self.game = game
   
   -- Create a new messagebox object, if there is none.
-  --if not self.game.mb then
+  if not self.game.mb then
     self.game.mb = MessageBox(self.game)
     self.mb = self.game.mb
     self.mbVisible = false
-  --end
+  end
 end
 
 function Event:addNew(file)
@@ -69,6 +71,12 @@ function Event:draw()
   -- If the messagebox is visible, draw it.
   if self.mbVisible then
     self.mb:draw()
+  end
+  
+  -- If screen is faded, draw black rectangle to cover it.
+  if self.fade then
+    love.graphics.setColor(0, 0, 0, self.fadeAlpha)
+    love.graphics.rectangle('fill', 0, 0, 640, 480)
   end
 end
 
@@ -234,6 +242,38 @@ function SB.battle(enemies)
   -- Start a battle with enemies.
   GS.push(Battle, Event.game, enemies)
   coroutine.yield()
+end
+
+function SB.fadeout(time)
+  -- Fade the screen to black, taking 'time' amount to get there.
+  local t, dt = 0, 0
+  Event.fade = true
+  
+  while t < time do
+    t = t + dt
+    
+    Event.fadeAlpha = 255*(t/time)
+    
+    _, dt = coroutine.yield()
+  end
+  
+  Event.fadeAlpha = 255
+end
+
+function SB.fadein(time)
+  -- Fade screen from balck to non-black.
+  local t, dt = 0, 0
+  
+  while t < time do
+    t = t + dt
+    
+    Event.fadeAlpha = 255 - 255*(t/time)
+    
+    _, dt = coroutine.yield()
+  end
+  
+  Event.fadeAlpha = 0
+  Event.fade = false
 end
 
 return Event

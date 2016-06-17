@@ -136,4 +136,8 @@ function Battle:draw()
   love.graphics.pop()
 end
 
+function Battle:startTurn(entity)
+  --self.
+end
+
 return Battle

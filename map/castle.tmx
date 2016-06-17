@@ -24,6 +24,9 @@
  <tileset firstgid="210" name="newset01" tilewidth="32" tileheight="32" tilecount="60" columns="15">
   <image source="../img/tst/newset01.png" width="480" height="128"/>
  </tileset>
+ <tileset firstgid="270" name="ladder" tilewidth="32" tileheight="32" tilecount="18" columns="6">
+  <image source="../img/tst/ladder.png" width="200" height="100"/>
+ </tileset>
  <layer name="bg" width="22" height="15">
   <data encoding="base64" compression="zlib">
    eJy7ysDA8InK+CoUj5o7ai61zMUGYObiAqSaR6y5xJiPLxxIBbQyl5Ad1DAXGxiK5gIAFTbJvQ==
@@ -36,10 +39,10 @@
  </layer>
  <layer name="entities" width="22" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFo4A24MJAO2AUkAwuDrQDBikAAC+tAaI=
+   eJxjYBgFo4A24MJAOwAH4GMcNRcXuEg/q4YUAACDVgHP
   </data>
  </layer>
- <objectgroup name="object">
+ <objectgroup name="object" visible="0">
   <object id="9" name="door" x="32" y="192" width="32" height="64">
    <properties>
     <property name="event" value=""/>
@@ -77,7 +80,7 @@
    eJzbx8DAsI8GeBSMglEwCugN9tMIAwCAeCC/
   </data>
  </layer>
- <layer name="special" width="22" height="15" opacity="0.5">
+ <layer name="special" width="22" height="15" visible="0" opacity="0.5">
   <properties>
    <property name="collidable" value="false"/>
    <property name="special" value="true"/>

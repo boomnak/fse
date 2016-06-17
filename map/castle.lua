@@ -101,6 +101,25 @@ return {
       terrains = {},
       tilecount = 60,
       tiles = {}
+    },
+    {
+      name = "ladder",
+      firstgid = 270,
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "../img/tst/ladder.png",
+      imagewidth = 200,
+      imageheight = 100,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 18,
+      tiles = {}
     }
   },
   layers = {
@@ -150,12 +169,12 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFo4A24MJAO2AUkAwuDrQDBikAAC+tAaI="
+      data = "eJxjYBgFo4A24MJAOwAH4GMcNRcXuEg/q4YUAACDVgHP"
     },
     {
       type = "objectgroup",
       name = "object",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -269,7 +288,7 @@ return {
       y = 0,
       width = 22,
       height = 15,
-      visible = true,
+      visible = false,
       opacity = 0.5,
       offsetx = 0,
       offsety = 0,

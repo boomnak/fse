@@ -4,4 +4,11 @@ freezeEntity(player)
 move(player, 32, 32, 1)
 unfreezeEntity(player)
 
-message('Event running')
+fadeout(1)
+sleep(1)
+fadein(1)
+
+addMessage('Event running')
+waitFor()
+clearMessage()
+hideMessage()

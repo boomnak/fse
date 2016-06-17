@@ -1,6 +1,5 @@
 --
 
--- TODO: Mouse/Gamepad/Touch controls.
 -- TODO: Saving/loading keymaps to/from files.
 
 local Vector = require 'lib.hump.vector'
@@ -50,11 +49,14 @@ function InputMan:update(dt)
       local b = {self.interactButton}
       
       if t.ox <= (self.game.width/2)*self.game.sx then
+        -- If touch in move area, generate movement vector.
         self.mv = Vector(t.ox-t.x, t.oy-t.y):normalizeInplace()
       else
         for i = 1, #b do
           if isPtInCircle(b[i].x * self.game.sx,
               b[i].y * self.game.sy, b[i].r, t.x, t.y) then
+            -- If one of the buttons is pressed, set the corresponding key to
+            -- 'down'.
             self.keysDown[b[i].key] = true
           else
             self.keysDown[b[i].key] = false
@@ -62,6 +64,18 @@ function InputMan:update(dt)
         end
       end
     end
+    
+    -- Set the movement keys based on the movement vector.
+    -- Allows for sidescroller to use 'up' for ladders/doors.
+    local mv, hc = self.mv, 1 / math.sqrt(2)
+    if mv.y > hc then self.keysDown['up'] = true
+    else self.keysDown['up'] = false end
+    if mv.y < -hc then self.keysDown['down'] = true
+    else self.keysDown['down'] = false end
+    if mv.x > hc then self.keysDown['left'] = true
+    else self.keysDown['left'] = false end
+    if mv.x < -hc then self.keysDown['right'] = true
+    else self.keysDown['right'] = false end
   end
 end
 
