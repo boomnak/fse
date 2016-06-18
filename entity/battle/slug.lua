@@ -12,7 +12,7 @@ local Slug = Class({
     -- Items consists of tables with both an item name and percent
     -- chance of it being dropped.
     items = {
-      {'healthpotion', 0.2}
+      {name = 'healthpotion', chance = 0.2}
     },
     gold = 10, -- Drops 10 gold.
     exp = 3, -- Gives the player 3 experience.
@@ -23,24 +23,37 @@ function Slug:init(game, battle)
   self.game = game
   self.battle = battle
   
+  self.turnTime = 1
+  self.time = 0
   self.HP = self.maxHP
 end
 
 function Slug:update(dt)
   -- Update is where any events will be run, and animations will
   -- be updated.
+  if self.turn then
+    self.time = self.time + dt
+    if self.time >= self.turnTime then
+      self.turn = false
+      self.time = 0
+    end
+  end
 end
 
 function Slug:draw(enemyNum)
-  love.graphics.setColor(0, 255, 0)
+  love.graphics.setColor(0, (self.turn and 255 or 127), 0)
   love.graphics.circle('fill', 480, 20, 20)
 end
 
-function Slug:takeTurn(player)
+function Slug:startTurn(player)
+  self.turn = true
+  
   -- AI for the slug during it's turn to fight.
-  player.stats.HP = player.stats.HP - self.attack + player.stats.defence
-  -- Tell the battle system that the slugs turn is over.
-  return 'done'
+  player.stats.HP = player.stats.HP - (self.attack - player.stats.defence)
+end
+
+function Slug:turnDone()
+  return not self.turn
 end
 
 function Slug:onDeath()

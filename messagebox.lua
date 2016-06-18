@@ -14,8 +14,6 @@ end
 
 function MessageBox:update(dt)
   self.dt = self.dt + dt
-
-  
 end
 
 function MessageBox:draw()
@@ -33,6 +31,7 @@ function MessageBox:draw()
   end
   
   if self.paused then
+    love.graphics.print('Press key to continue...', self.game.width/2, self.game.height/4 - 20)
   end
   
   -- Reset the color.

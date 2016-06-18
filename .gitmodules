@@ -13,4 +13,6 @@
 [submodule "lume"]
 	path = lib/lume
 	url = http://github.com/rxi/lume.git
-
+[submodule "serpent"]
+	path = lib/serpent
+	url = https://github.com/pkulchenko/serpent.git

@@ -38,6 +38,7 @@ function Sidescroller:enter(prev, game, mapFile, playerx, playery)
   
   self.map = Map(game, mapFile)
   self.game.map = self.map
+  self.game.mapName = mapFile
   
   -- Set the player
   self.entities[#self.entities+1] = Player(

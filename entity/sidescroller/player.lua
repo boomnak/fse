@@ -1,9 +1,11 @@
 -- Controls for the player in the sidescrolling stages.
 
 local Class = require 'lib.hump.class'
+local GS = require 'lib.hump.gamestate'
 local Vector = require 'lib.hump.vector'
 
 local InputMan = require 'inputman'
+local Menu = require 'state.menu'
 
 local Player = Class({})
 
@@ -26,6 +28,11 @@ function Player:init(game, entity)
 end
 
 function Player:update(dt)
+  -- If the menu key is down, go to the menu.
+  if InputMan:down('menu') then
+    GS.push(Menu, self.game)
+  end
+  
   local goal = self.pos:clone()
   if InputMan:down('left') then goal.x = goal.x - self.speed*dt end
   if InputMan:down('right') then goal.x = goal.x + self.speed*dt end

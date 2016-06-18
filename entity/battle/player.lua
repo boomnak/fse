@@ -8,22 +8,43 @@ function BattlePlayer:init(game, battle, stats)
   self.game = game
   self.battle = battle
   self.stats = stats
+  
+  self.turnTime = 1
+  self.time = 0
 end
 
 function BattlePlayer:update(dt)
   -- Update animations.
+  if self.turn then
+    self.time = self.time + dt
+    
+    if self.time >= self.turnTime then
+      self.turn = false
+      self.time = 0
+    end
+  end
 end
 
 function BattlePlayer:draw()
   -- Draw animations.
-  love.graphics.setColor(255, 255, 255)
+  if self.turn then
+    love.graphics.setColor(255, 255, 255)
+  else
+    love.graphics.setColor(127, 127, 127)
+  end
   love.graphics.rectangle('fill', 240, 240, 32, 32)
 end
 
-function BattlePlayer:takeTurn(enemies)
+function BattlePlayer:startTurn(enemies)
   -- 
+  self.turn = true
+  
   self.damageDone = self.stats.attack - enemies[1].defence
   enemies[1].HP = enemies[1].HP - self.damageDone
+end
+
+function BattlePlayer:turnDone()
+  return not self.turn
 end
 
 return BattlePlayer

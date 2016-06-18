@@ -26,6 +26,11 @@ These include:
   style in Lua, with a multitude of functions relating mainly to the usage of
   tables as lists or dictionaries.
 
+* Serpent
+
+  Serpent is a library that serializes Lua tables. It is used to generate save
+  files.
+
 * Simple Tiled Implementation (STI)
   
   STI is a library that allows the loading and drawing of maps created with the

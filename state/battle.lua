@@ -22,8 +22,8 @@ function Battle:enter(prev, game, enemies)
   -- Initialize the player's AI with their current stats.
   self.player = BattlePlayer(game, self, game.player)
 
-  self.currEnemy = 1
-  self.playersTurn = true
+  self.turn = 'player'
+  self.actionPicked = false
   
   self.t = 0.3
   self.dt = self.t
@@ -33,8 +33,7 @@ function Battle:enter(prev, game, enemies)
     {
       name = 'Attack',
       action = function()
-        self.player:takeTurn(self.enemies)
-        self.playersTurn = false
+        self.player:startTurn(self.enemies)
       end,
     },
     {
@@ -50,52 +49,31 @@ function Battle:enter(prev, game, enemies)
 end
 
 function Battle:update(dt)
-  if not self.playersTurn then
-    if self.enemies[self.currEnemy]:takeTurn(self.player) == 'done' then
-      -- If the current enemies turn is done, go to the next one.
-      self.currEnemy = self.currEnemy + 1
+  if self.turn == 'enemy' then
+    if self.enemies[1]:turnDone() then
+      self.turn = 'player'
     end
-    if self.currEnemy > #self.enemies then
-      self.currEnemy = 1
-      self.playersTurn = true
+  elseif self.turn == 'player' then
+    if self.actionPicked and self.player:turnDone() then
+      self.turn = 'enemy'
+      self.actionPicked = false
+      self.enemies[1]:startTurn(self.player)
     end
   end
+  
+  self:updateHUD(dt)
   
   self.player:update(dt)
   for i = 1, #self.enemies do
     self.enemies[i]:update(dt)
   end
   
-  self.dt = self.dt + dt
-  if self.dt >= self.t then
-    self.canPress = true
-  else
-    self.canPress = false
-  end
-  
-  if InputMan:down('down') and self.canPress then
-    self.currOption = self.currOption + 1
-    if self.currOption > #self.options then
-      self.currOption = 1
-    end
-    self.dt = 0
-  elseif InputMan:down('up') and self.canPress then
-    self.currOption = self.currOption - 1
-    if self.currOption < 1 then
-      self.currOption = #self.options
-    end
-    self.dt = 0
-  end
-  
-  if InputMan:down('interact') then
-    self.options[self.currOption].action()
-  end
-  
   if self.player.stats.HP <= 0 then
     -- If the player died, then go to gameover.
-    GS.switch(Gameover)
-  elseif self.enemies[self.currEnemy].HP <= 0 then
-    GS.pop()
+    GS.switch(Gameover, self.game)
+  elseif self.enemies[1].HP <= 0 then
+    -- If enemy died, then the player won.
+    self:playerWon()
   end
   
   InputMan:update(dt)
@@ -136,8 +114,63 @@ function Battle:draw()
   love.graphics.pop()
 end
 
-function Battle:startTurn(entity)
-  --self.
+function Battle:updateHUD(dt)
+  self.dt = self.dt + dt
+  if self.dt >= self.t then
+    self.canPress = true
+  else
+    self.canPress = false
+  end
+  
+  if InputMan:down('down') and self.canPress then
+    self.currOption = self.currOption + 1
+    if self.currOption > #self.options then
+      self.currOption = 1
+    end
+    self.dt = 0
+  elseif InputMan:down('up') and self.canPress then
+    self.currOption = self.currOption - 1
+    if self.currOption < 1 then
+      self.currOption = #self.options
+    end
+    self.dt = 0
+  end
+  
+  if InputMan:down('interact') and
+      self.turn == 'player' and not self.actionPicked then
+    self.actionPicked = true
+    self.options[self.currOption].action()
+  end
+end
+
+function Battle:playerWon()
+  local pstats = self.player.stats
+  local edrops = self.enemies[1].drops
+  
+  pstats.exp = pstats.exp + edrops.exp
+  if pstats.exp >= pstats.expNeeded then
+    -- If the player has the necessecary experience, level them up.
+    pstats.level = pstats.level + 1
+    pstats.exp = pstats.exp - pstats.expNeeded
+    pstats.maxHP = pstats.maxHP + 5
+    pstats.HP = pstats.maxHP
+    pstats.attack = pstats.attack + 1
+    pstats.expNeeded = pstats.expNeeded + 10
+  end
+  
+  -- Loop through the enemies item drops and decide whether or not to give
+  -- them to the player.
+  local itm = edrops.items
+  for i = 1, #itm do
+    if love.math.random() < itm[i].chance then
+      -- Give the player the item if the chance was passed.
+      pstats.items[itm[i].name] = (pstats.items[itm[i].name] or 0) + 1
+    end
+  end
+  
+  pstats.gold = pstats.gold + edrops.gold
+  
+  GS.pop()
 end
 
 return Battle

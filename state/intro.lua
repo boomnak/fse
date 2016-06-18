@@ -11,6 +11,7 @@ local suit = require 'lib.suit'
 
 local Battle = require 'state.battle'
 local Overworld = require 'state.overworld'
+local SaveLoad = require 'saveload'
 local Search = require 'search'
 
 local Intro = {}
@@ -30,6 +31,7 @@ function Intro:enter(prev, game)
     gold = 0,
     level = 1,
     exp = 0,
+    expNeeded = 10,
     maxHP = 10,
     HP = 10,
     attack = 2,
@@ -45,7 +47,8 @@ function Intro:update(dt)
   
   if suit.Button('Play Game', suit.layout:row(200, 30)).hit then
     GS.switch(Overworld, self.game)
-    --GS.switch(Battle, self.game, { 'slug' })
+  elseif suit.Button('Load', suit.layout:row(200, 30)).hit then
+    SaveLoad.load(self.game, 'save1.save')
   end
 end
 

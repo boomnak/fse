@@ -38,6 +38,7 @@ function Overworld:enter(prev, game, playerx, playery)
   
   self.map = Map(game, 'overworld')
   self.game.map = self.map
+  self.game.mapName = 'overworld'
   
   if playerx or playery then
     -- If a player position was passed.
