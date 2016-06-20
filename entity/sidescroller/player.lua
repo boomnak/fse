@@ -107,4 +107,10 @@ function Player:handleCollison(col)
   end
 end
 
+function Player:setPosition(x, y)
+  -- Set the players position without checking for collisions.
+  self.game.world:update(self, x, y)
+  self.pos = Vector(x, y)
+end
+
 return Player

@@ -94,7 +94,7 @@ function SB.getEntity(name)
   local e = Event.game.entities
   for i = 1,#e do
     if e[i].name == name then
-      return e[i]
+      return e[i], i
     end
   end
   return nil
@@ -110,6 +110,9 @@ function SB.unfreezeEntity(entity)
     entity.update = entity.prevUpdate
     entity.prevUpdate = nil
   end
+end
+function SB.removeEntity(entNum)
+  table.remove(Event.game.entities, entNum)
 end
 
 -- Functions that apply to multiple entities.
@@ -274,6 +277,11 @@ function SB.fadein(time)
   
   Event.fadeAlpha = 0
   Event.fade = false
+end
+
+function SB.getMapDimensions()
+  -- Return the dimensions of the current map.
+  return Event.game.map:getWidth(), Event.game.map:getHeight()
 end
 
 return Event

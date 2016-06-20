@@ -1,6 +1,6 @@
 function talk(msg)
 	addMessage(msg)
-	waitFor("c")
+	waitFor("interact")
 	clearMessage() 
 end
 function teleport(location, xpos, ypos)
@@ -11,7 +11,7 @@ function teleport(location, xpos, ypos)
 	sleep(0.5)
 end
 
-local x,y = love.graphics.getDimensions()
+local x,y = getMapDimensions()
 
 vars.SOKevent = 1
 vars.recruitAvaido = false
@@ -21,42 +21,36 @@ local potionSelect = false
 vars.potion = 1
 
 while potionSelect == false do 
-	if vars.potion == 1 then
-		addMessage("Select a drink! \ n")
-		addMessage("press 'c' key to select your drink! \n")
-		addMessage("potion of the warrior \n")
+  addMessage("Select a drink!")
+  addMessage("press 'c' key to select your drink!")
+	if vars.potion == 1 then  
+		addMessage("potion of the warrior")
 		addMessage("strength boost")
 	elseif vars.potion == 2 then
-		addMessage("Select a drink! \ n")
-		addMessage("press 'c' key to select your drink! \n")
-		addMessage("potion of the knight \n")
+		addMessage("potion of the knight")
 		addMessage("defence boost")
 	elseif vars.potion == 3 then
-		addMessage("Select a drink! \ n")
-		addMessage("press 'c' key to select your drink! \n")
-		addMessage("potion of the archer \n")
+		addMessage("potion of the archer")
 		addMessage("multiple hit damage boost")
 	elseif vars.potion == 4 then
-		addMessage("Select a drink! \ n")
-		addMessage("press 'c' key to select your drink! \n")
-		addMessage("potion of the mage \n")
+		addMessage("potion of the mage")
 		addMessage("magic boost")
 	end
 	--displays the potion's power up
 	
-	if down("right") == true then
+	if down("right") then
 		if vars.potion == 4 then
 			vars.potion = 1
 		else
 			vars.potion = vars.potion + 1
 		end
-	elseif down("left") == true then
+	elseif down("left") then
 		if vars.potion == 1 then
 			vars.potion = 4
 		else
 			vars.potion = vars.potion - 1
 		end
-	elseif down("c") == true then
+	elseif down("interact") then
 		potionSelect = true
 	end
 	sleep(0.25)
@@ -105,6 +99,7 @@ talk("I wonder what happened back there?")
 
 vars.SOKevent = 2
 
+--[[
 function talkKingAthens()
 	if vars.SOKevent == 0 then
 		getEntity("KingAthens").disable() --Make a similar function to disable the character from the game
@@ -345,3 +340,4 @@ function talkAvaido()
 		talk("Avaido: What is it?")
 	end
 end
+]]

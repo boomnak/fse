@@ -14,9 +14,11 @@ keymap = {
 
 The following is a list of commands that can used in events:
 
-getEntity(name) -- Returns the entity that has 'name', if it exists.
+getEntity(name) -- Returns the entity that has 'name', if it exists, as well as
+    the entity number (for removing the entity).
 freezeEntity(entity) -- Disables the update function of 'entity'
 unfreezeEntity(entity) -- Enables the update function of 'entity'
+removeEntity(entNum) -- Remove entity 'entnum'.
 
 getEntities() -- Returns a table containing all current entities.
 freezeEntities() -- Disables the update function of all entities.
@@ -43,3 +45,4 @@ down(key) -- Returns whether or not the given key is down.
 battle(enemies) -- Starts a battle against 'enemies'. enemies should be a table
     of strings containing the names of enemies to battle, i.e. battle({ 'slug' })
 
+getMapDimensions() -- Returns the width and height of the current map.
