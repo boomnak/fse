@@ -1,6 +1,6 @@
 function talk(msg)
 	addMessage(msg)
-	waitFor("interact")
+	waitFor("c")
 	clearMessage() 
 end
 function teleport(location, xpos, ypos)
@@ -11,7 +11,7 @@ function teleport(location, xpos, ypos)
 	sleep(0.5)
 end
 
-local x,y = getMapDimensions()
+local x,y = love.graphics.getDimensions()
 
 vars.SOKevent = 1
 vars.recruitAvaido = false
@@ -21,36 +21,42 @@ local potionSelect = false
 vars.potion = 1
 
 while potionSelect == false do 
-  addMessage("Select a drink!")
-  addMessage("press 'c' key to select your drink!")
-	if vars.potion == 1 then  
-		addMessage("potion of the warrior")
+	if vars.potion == 1 then
+		addMessage("Select a drink! \ n")
+		addMessage("press 'c' key to select your drink! \n")
+		addMessage("potion of the warrior \n")
 		addMessage("strength boost")
 	elseif vars.potion == 2 then
-		addMessage("potion of the knight")
+		addMessage("Select a drink! \ n")
+		addMessage("press 'c' key to select your drink! \n")
+		addMessage("potion of the knight \n")
 		addMessage("defence boost")
 	elseif vars.potion == 3 then
-		addMessage("potion of the archer")
+		addMessage("Select a drink! \ n")
+		addMessage("press 'c' key to select your drink! \n")
+		addMessage("potion of the archer \n")
 		addMessage("multiple hit damage boost")
 	elseif vars.potion == 4 then
-		addMessage("potion of the mage")
+		addMessage("Select a drink! \ n")
+		addMessage("press 'c' key to select your drink! \n")
+		addMessage("potion of the mage \n")
 		addMessage("magic boost")
 	end
 	--displays the potion's power up
 	
-	if down("right") then
+	if down("right") == true then
 		if vars.potion == 4 then
 			vars.potion = 1
 		else
 			vars.potion = vars.potion + 1
 		end
-	elseif down("left") then
+	elseif down("left") == true then
 		if vars.potion == 1 then
 			vars.potion = 4
 		else
 			vars.potion = vars.potion - 1
 		end
-	elseif down("interact") then
+	elseif down("c") == true then
 		potionSelect = true
 	end
 	sleep(0.25)
@@ -99,7 +105,6 @@ talk("I wonder what happened back there?")
 
 vars.SOKevent = 2
 
---[[
 function talkKingAthens()
 	if vars.SOKevent == 0 then
 		getEntity("KingAthens").disable() --Make a similar function to disable the character from the game
@@ -194,7 +199,7 @@ function talkAlexander()
 	if vars.SOKevent == 0 then
 		getEntity("Alexander").disable()
 	elseif vars.SOKevent == 2 then
-		talk("???: Who are you, and what are you doing here?")
+		talk("Alexander: Who are you, and what are you doing here?")
 	elseif vars.SOKevent == 3 then
 		talk("Alexander: The King eh?")
 		talk("Alexander: I see then, but first you will be tested to see if your ready.")
@@ -314,30 +319,53 @@ function talkFatal()
 	end
 end
 
-
-function talkAvaido()
---This is if we implement a party system
-	if vars.recruitAvaido == false then
-		talk("Avaido the Beast: Leave here traveller, or you'll suffer the same fate as I.")
-		talk("Avaido: ...")
-		talk("Avaido: Hmm.. interesting so you insist on staying huh!")
-		talk("Avaido: I'll tell you what, if you free me I just might consider joining you")
-		
-		addMessage("What will you do? \n")
-		addMessage("free him (c) or leave (x)")
-		
-		local recruitOptions = false
-		while recruitOptions == false do
-			if down("interact") == true
-				talk("Avaido: you have my gratitude sir.")
-				talk("Avaido joined the team!")
-				vars.recruitAvaido = true
-			elseif down("item") == true
-				talk("Avaido: then leave me be...")
-			end
-		end
-	elseif vars.recruitAvaido == true then
-		talk("Avaido: What is it?")
-	end
+function talkAdoomGuard()
+  if vars.SOKevent == 0 or vars.SOKevent == 2 then
+    talk("Hey! you you're a wanted man!")
+    battle("Guard")
+  else
+    talk("Guard: How goes your journey traveller?")
+  end 
 end
-]]
+function talkIrsilGuard()
+  talk("Guard: Lovely day isn't it traveller!")
+end
+function talkDevesGuard()
+  talk("Guard: Our king is said to be the strongest in all of Oras.")
+end
+function talkH'atahaGuard()
+  if vars.SOKevent <= 8 then
+    talk("Guard: Have a great day traveller!")
+  elseif vars.SOKevent > 8 then
+    talk("Guard: We will avenge the King!")
+    battle("Guard")
+end
+function talkNPC()
+  --assign these dialogues to different npcs, I just put it into 1 function for now
+  talk("The Summit of Kings is a truly remarkable event!")
+  talk("You can buy various items at the shop such as weapons and potions.")
+  talk("The four kingdoms of Oras all have a specific mastery of skill.")
+  talk("That mischief wizard Fatal has been causing a lot of trouble as of late.")
+  talk("I've heard that King Vad makes his guards fight one another for entertainment.")
+  talk("That King Fowlin is an interesting guy, he is said to have a rare power with in him.")
+  talk("King Taha is said to be the nicest amonst all kings.")
+  talk("the King of Adoom, Athens is the oldest king alive.")
+  talk("Many strange tales come from adventurers who brave the Dark woods.")
+  talk("What are you looking at?")
+  talk("Hello traveller, how goes your day?")
+  talk("There have been rumours that a mysterious masked figure lurks these streets.")
+  talk("I once went to the Dark woods , but I cannot recall what happened.")
+  talk("My son is traveller such as you, be sure to say hi to him if you two meet.")
+  talk("Oras is an island south of the main land of Zerrock where the World Authorities are.")
+  talk("The World Authorities are said to be immortal beings that came from beyond space and time.")
+  talk("It is said that fairies used to live in the H'ataha kingdom.")
+  talk("My dream is to see the world!")
+  talk("The Summit of Kings is an ancient tradition in Oras, it began with the end of the Blood Wars.")
+  talk("King Vad is said to be part vampire, because he drinks the blood of the people he defeats.")
+  talk("Oras was once an island with nothing but the Dark Woods.")
+  talk("The Infinity King is the ruler of the World Authorities and the entire world.")
+  talk("King Fowlin's father was assassinated by his own head commander.")
+  talk("Better stock up for the Winter, Winter's here are usually deadly.")
+  talk("Our native animal is the Grass Elk, they are very tough, but very tasty as well.")
+  talk("Have a wonderful day traveller!")
+end
