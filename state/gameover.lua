@@ -10,8 +10,9 @@ function Gameover:update(dt)
 end
 
 function Gameover:draw()
+  love.graphics.print('Game over!', 10, 10)
   love.graphics.print(
-    'Press ' .. InputMan.keymap.interact .. ' to continue.', 10, 10)
+    'Press ' .. InputMan.keymap.interact .. ' to continue.', 10, 30)
 end
 
 return Gameover

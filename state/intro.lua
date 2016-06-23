@@ -36,7 +36,9 @@ function Intro:enter(prev, game)
     HP = 10,
     attack = 2,
     defence = 0,
-    items = {}
+    items = {},
+    weaponAttack = 0,
+    armorDefence = 0,
   }
 end
 

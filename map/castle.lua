@@ -174,7 +174,7 @@ return {
     {
       type = "objectgroup",
       name = "object",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -210,8 +210,9 @@ return {
           visible = true,
           properties = {
             ["event"] = "",
-            ["file"] = "king.lua",
-            ["oncePerCollision"] = ""
+            ["file"] = "SummitOfKingsEvent.lua",
+            ["oncePerCollision"] = "",
+            ["runOnce"] = ""
           }
         },
         {

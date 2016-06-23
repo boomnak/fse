@@ -16,6 +16,7 @@ function EventRunner:init(game, object)
   self.file = object.properties.file
   self.warp = object.properties.warp
   self.name = object.properties.name
+  self.code = object.properties.code
   -- runOnce makes the event only run once on the current map.
   self.runOnce = object.properties.runOnce
   -- Run on key makes it so the event only runs when a certain key
@@ -65,8 +66,7 @@ function EventRunner:onPlayer()
     -- If the event is set to only run when a certain key is held down,
     -- don't run it if the key isn't down.
     return
-  end
-  
+  end  
   if self.oncePerCollision  and self.collidedWithPlayer then
     -- If the player is still colliding with the event after the event
     -- has already run, don't run the event again.
@@ -77,6 +77,11 @@ function EventRunner:onPlayer()
     -- If the player hits the event, and the event is not currently
     -- running, run the event.
     Event:addFromCaller(self, self.file)
+    self.isRunning = true
+  
+  elseif not self.isRunning and self.code then
+    -- If the event is stored in self.code, run it as a string.
+    Event:addStringFromCaller(self, self.code)
     self.isRunning = true
     
   elseif self.warp then

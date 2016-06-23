@@ -35,12 +35,14 @@ function BattlePlayer:draw()
   love.graphics.rectangle('fill', 240, 240, 32, 32)
 end
 
-function BattlePlayer:startTurn(enemies)
+function BattlePlayer:startTurn(enemies, action)
   -- 
   self.turn = true
   
-  self.damageDone = self.stats.attack - enemies[1].defence
-  enemies[1].HP = enemies[1].HP - self.damageDone
+  if action == 'attack' then
+    self.damageDone = self.stats.attack + self.stats.weaponAttack - enemies[1].defence
+    enemies[1].HP = enemies[1].HP - self.damageDone
+  end
 end
 
 function BattlePlayer:turnDone()

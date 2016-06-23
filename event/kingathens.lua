@@ -30,7 +30,7 @@ elseif vars.SOKevent == 2 then
       clearMessage()
       talk("King: Well then, you are still considered a prisoner after all.")
       talk("King: I guess I'll have to take things into my own hands then!")
-      battle("KingAthens")
+      battle({"kingathens"})
       talk("The king has been slain... Mission Failed (Summit of Kings)")
       
       vars.SOKevent = 0 --if any event is at 0, it means that the event is a failure

@@ -29,13 +29,15 @@ clearMessage() -- Clears any text off the message box.
 showMessage() -- Make the message box visible (automatically called by
     addMessage).
 hideMessage() -- Hide the message box.
+talk(text) -- Say text then wait for the player to press interact.
 
 endEvent(evNum) -- If evNum is not passed, end the current event. Otherwise, end
     event at index evNum.
 sleep(time) -- Pause the event for 'time' seconds.
 
 warp(map, x, y) -- Warp the player to 'map' at pixel coordinates 'x' and 'y'.
-    Warning: will end the currently running event!
+teleport(map, x, y) -- Warp the player with a fadein and fadeout.
+
 move(entity, x, y, time) -- Move 'entity' by x & y pixels over 'time' seconds.
 moveTo(entity, x, y, time) -- Move 'entity' to position x,y over 'time' seconds.
 
@@ -46,3 +48,5 @@ battle(enemies) -- Starts a battle against 'enemies'. enemies should be a table
     of strings containing the names of enemies to battle, i.e. battle({ 'slug' })
 
 getMapDimensions() -- Returns the width and height of the current map.
+
+giveItem(item) -- Give the player the item.

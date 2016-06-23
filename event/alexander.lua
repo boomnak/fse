@@ -25,7 +25,7 @@ elseif vars.SOKevent == 5 then
   talk("Alexander: Before I put you under my command I wish to fight you as a last test.")
   talk("Alexander: Here you may use this in our fight.")
   talk("Player received weapon!") --(bow-if archer, sword-if warrior, staff-if mage, mace-if knight)
-  battle("Alexander")
+  battle({"alexander"})
   talk("Alexander: You are excellent in your technique, but have a lot to learn.")
   talk("You have become a Royal Guard!")
   talk("Alexander: I Welcome you under my command")

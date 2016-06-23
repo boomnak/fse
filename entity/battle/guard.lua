@@ -2,24 +2,25 @@
 
 local Class = require 'lib.hump.class'
 
-local Slug = Class({
-  -- Set up default stats that apply to all slugs.
-  attack = 1,
-  defence = 0,
-  maxHP = 10,
+local Guard = Class({
+  -- Set up default stats that apply to all Guards.
+  attack = 2,
+  defence = 1,
+  maxHP = 20,
   -- Drops is a table of the items an enemy could drop when it dies.
   drops = {
     -- Items consists of tables with both an item name and percent
     -- chance of it being dropped.
     items = {
-      {name = 'hpotion', chance = 0.5}
+      {name = 'hpotion', chance = 0.5},
+      {name = 'shield', chance = 0.5}
     },
     gold = 10, -- Drops 10 gold.
-    exp = 3, -- Gives the player 3 experience.
+    exp = 5, -- Gives the player 3 experience.
   },
 })
 
-function Slug:init(game, battle)
+function Guard:init(game, battle)
   self.game = game
   self.battle = battle
   
@@ -28,7 +29,7 @@ function Slug:init(game, battle)
   self.HP = self.maxHP
 end
 
-function Slug:update(dt)
+function Guard:update(dt)
   -- Update is where any events will be run, and animations will
   -- be updated.
   if self.turn then
@@ -40,26 +41,30 @@ function Slug:update(dt)
   end
 end
 
-function Slug:draw(enemyNum)
-  love.graphics.setColor(0, (self.turn and 255 or 127), 0)
+function Guard:draw()
+  if self.turn then
+    love.graphics.setColor(200, 200, 200)
+  else
+    love.graphics.setColor(100, 100, 100)
+  end
   love.graphics.circle('fill', 480, 20, 20)
 end
 
-function Slug:startTurn(player)
+function Guard:startTurn(player)
   self.turn = true
   
-  -- AI for the slug during it's turn to fight.
+  -- AI for the Guard during it's turn to fight.
   player.stats.HP = player.stats.HP -
     (self.attack - player.stats.defence - player.stats.armorDefence)
 end
 
-function Slug:turnDone()
+function Guard:turnDone()
   return not self.turn
 end
 
-function Slug:onDeath()
-  -- Return what the player gets when the slug dies.
+function Guard:onDeath()
+  -- Return what the player gets when the Guard dies.
   return self.drops
 end
 
-return Slug
+return Guard

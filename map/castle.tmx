@@ -42,7 +42,7 @@
    eJxjYBgFo4A24MJAOwAH4GMcNRcXuEg/q4YUAACDVgHP
   </data>
  </layer>
- <objectgroup name="object" visible="0">
+ <objectgroup name="object">
   <object id="9" name="door" x="32" y="192" width="32" height="64">
    <properties>
     <property name="event" value=""/>
@@ -53,8 +53,9 @@
   <object id="10" name="king" x="608" y="192" width="32" height="32">
    <properties>
     <property name="event" value=""/>
-    <property name="file" value="king.lua"/>
+    <property name="file" value="SummitOfKingsEvent.lua"/>
     <property name="oncePerCollision" value=""/>
+    <property name="runOnce" value=""/>
    </properties>
   </object>
   <object id="11" x="576" y="352" width="32" height="32">

@@ -98,7 +98,7 @@ return {
     {
       type = "objectgroup",
       name = "object",
-      visible = false,
+      visible = true,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -133,9 +133,9 @@ return {
           rotation = 0,
           visible = true,
           properties = {
+            ["code"] = "teleport('castle',32,224); giveItem('sword')",
             ["event"] = "",
-            ["runOnKey"] = "interact",
-            ["warp"] = "'castle',32,224"
+            ["runOnKey"] = "interact"
           }
         },
         {
@@ -150,8 +150,8 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["event"] = "",
-            ["warp"] = "'overworld',128,64"
+            ["code"] = "talk('Entering cave...')",
+            ["event"] = ""
           }
         }
       }

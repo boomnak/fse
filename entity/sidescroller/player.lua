@@ -22,25 +22,29 @@ function Player:init(game, entity)
   self.speed = 100 -- running speed, in m/s
   self.ySpeed = 0
   self.onLadder = false -- Not on a ladder.
+  self.input = true
   
   self.game = game
   self.game.world:add(self, self.pos.x, self.pos.y, self.dim.x, self.dim.y)
 end
 
 function Player:update(dt)
-  -- If the menu key is down, go to the menu.
-  if InputMan:down('menu') then
-    GS.push(Menu, self.game)
-  end
-  
   local goal = self.pos:clone()
-  if InputMan:down('left') then goal.x = goal.x - self.speed*dt end
-  if InputMan:down('right') then goal.x = goal.x + self.speed*dt end
   
-  if self.canJump and love.keyboard.isDown('space') then
-    self.ySpeed = -320
+  if self.input then
+    -- If the menu key is down, go to the menu.
+    if InputMan:down('menu') then
+      GS.push(Menu, self.game)
+    end
+    
+    if InputMan:down('left') then goal.x = goal.x - self.speed*dt end
+    if InputMan:down('right') then goal.x = goal.x + self.speed*dt end
+    
+    if self.canJump and love.keyboard.isDown('space') then
+      self.ySpeed = -320
+    end
+    self.canJump = false
   end
-  self.canJump = false
   
   if self.onLadder then
     goal.y = goal.y - self.speed*dt

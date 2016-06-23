@@ -2,6 +2,7 @@
 local GS = require 'lib.hump.gamestate'
 
 local InputMan = require 'inputman'
+local ItemSelect = require 'state.itemselect'
 local SaveLoad = require 'saveload'
 
 local Menu = {}
@@ -27,6 +28,12 @@ function Menu:enter(prev, game)
       name = 'Quit',
       action = function()
         love.event.quit()
+      end
+    },
+    {
+      name = 'Items',
+      action = function()
+        GS.push(ItemSelect, self.game, self.game.player)
       end
     }
   }
@@ -77,30 +84,41 @@ function Menu:draw()
   
   -- Draw a blue rectangle as the menu background.
   love.graphics.setColor(127, 127, 255)
-  love.graphics.rectangle('fill', self.game.width/4, self.game.height/4,
-                                  self.game.width/2, self.game.height/2)
+  love.graphics.rectangle('fill', self.game.width/4, 0,
+                                  self.game.width/2, self.game.height)
   
   -- Loop through and print out the menu options.
   love.graphics.setColor(255, 255, 255)
   for i = 1, #self.options do
     if self.currOption == i then
       love.graphics.print('> ' .. self.options[i].name,
-        self.game.width/4, self.game.height/4 + 20*(i-1))
+        self.game.width/4, 20*(i-1))
     else
       love.graphics.print(self.options[i].name,
-        self.game.width/4, self.game.height/4 + 20*(i-1))
+        self.game.width/4, 20*(i-1))
     end
   end
   
   -- Loop through the player's stats and print them out.
   local line = 0
   for k,v in pairs(self.game.player) do
-    -- Don't print out the items.
     if k ~= 'items' then
       love.graphics.print(k .. ': ' .. v,
-        self.game.width/2, self.game.height/4 + 20*line)
+        self.game.width/2, 20*line)
       
       line = line + 1
+    elseif next(v) then
+      -- Only print items if the player has any.
+      love.graphics.print('Items:',
+        self.game.width/2, 20*line)
+      line = line + 1
+      
+      for kk,vv in pairs(v) do
+        -- Loop through the items and print them out.
+        love.graphics.print(kk .. ': ' .. vv,
+          self.game.width/2 + 30, 20*line)
+        line = line + 1
+      end
     end
   end
   

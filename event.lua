@@ -47,6 +47,26 @@ function Event:addFromCaller(caller, file)
   }
 end
 
+function Event:addString(string)
+  -- Create a new thread with it's own environment, allowing sandboxed
+  -- execution of an event that can be paused and resumed.
+  local event = loadstring(string)
+  setfenv(event, self.sandbox)
+  
+  -- Append the new event to the end of the current events table.
+  self.events[#self.events+1] = {event = coroutine.create(event)}
+end
+
+function Event:addStringFromCaller(caller, string)
+  local event = loadstring(string)
+  setfenv(event, self.sandbox)
+  
+  self.events[#self.events+1] = {
+    event = coroutine.create(event),
+    caller = caller,
+  }
+end
+
 function Event:update(dt)
   -- Update every currently running event.
   for i = #self.events,1,-1 do
@@ -154,6 +174,16 @@ function SB.hideMessage()
   Event.mbVisible = false
 end
 
+function SB.talk(text)
+  -- Simplified method of displaying text.
+  SB.freezeEntities()
+  SB.addMessage(text)
+	SB.waitFor("interact")
+	SB.clearMessage()
+  SB.hideMessage()
+  SB.unfreezeEntities()
+end
+
 function SB.endEvent(eventNumber)
   if eventNumber then
     -- Remove event at index eventNumber.
@@ -177,6 +207,16 @@ end
 function SB.warp(map, x, y)
   -- Warp the player to a different map.
   Event.game:switchMap(map, x, y)
+end
+
+function SB.teleport(location, xpos, ypos)
+  SB.freezeEntities()
+	SB.fadeout(0.25)
+	SB.sleep(0.5)
+	SB.warp(location, xpos, ypos)
+	SB.fadein(0.25)
+	SB.sleep(0.5)
+  SB.unfreezeEntities()
 end
 
 function SB.move(entity, x, y, time)
@@ -282,6 +322,12 @@ end
 function SB.getMapDimensions()
   -- Return the dimensions of the current map.
   return Event.game.map:getWidth(), Event.game.map:getHeight()
+end
+
+function SB.giveItem(item)
+  local pitems = Event.game.player.items
+  -- Add 'item' to the player's inventory.
+  pitems[#pitems + 1] = item
 end
 
 return Event

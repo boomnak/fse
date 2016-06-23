@@ -10,6 +10,7 @@ function MessageBox:init(game)
   self.maxLines = 5
   self.dt = 0
   self.paused = false
+  self.visible = true
 end
 
 function MessageBox:update(dt)
@@ -17,6 +18,11 @@ function MessageBox:update(dt)
 end
 
 function MessageBox:draw()
+  if not self.visible then
+    -- Don't draw if the MB is not visible.
+    return
+  end
+  
   local prevColor = { love.graphics.getColor() }
   -- Draw a black rectangle.
   love.graphics.setColor(0, 0, 0, 127)

@@ -4,7 +4,7 @@ if vars.SOKevent == 6 then
   talk("Fatal: ...")
   talk("Player: I've been ordered to eliminate you.")
   talk("Fatal: ...")
-  battle("Fatal")
+  battle({"fatal"})
   removeEntity(fatalNum)
   vars.SOKevent = 7
 elseif vars.SOKevent == 9 then
