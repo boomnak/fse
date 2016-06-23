@@ -98,7 +98,7 @@ return {
     {
       type = "objectgroup",
       name = "object",
-      visible = true,
+      visible = false,
       opacity = 1,
       offsetx = 0,
       offsety = 0,
@@ -133,7 +133,7 @@ return {
           rotation = 0,
           visible = true,
           properties = {
-            ["code"] = "teleport('castle',32,224); giveItem('sword')",
+            ["code"] = "teleport('castle',32,224)",
             ["event"] = "",
             ["runOnKey"] = "interact"
           }
@@ -151,7 +151,8 @@ return {
           visible = true,
           properties = {
             ["code"] = "talk('Entering cave...')",
-            ["event"] = ""
+            ["event"] = "",
+            ["oncePerCollision"] = ""
           }
         }
       }

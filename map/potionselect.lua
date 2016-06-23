@@ -4,35 +4,35 @@ return {
   tiledversion = "0.15.1",
   orientation = "orthogonal",
   renderorder = "right-down",
-  width = 22,
+  width = 20,
   height = 15,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 13,
+  nextobjectid = 6,
   properties = {},
   tilesets = {
     {
-      name = "rpgtk",
+      name = "Fullset 01",
       firstgid = 1,
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "../img/tst/rpgtk.png",
-      imagewidth = 544,
-      imageheight = 384,
+      image = "../img/Fullset 01.png",
+      imagewidth = 512,
+      imageheight = 512,
       tileoffset = {
         x = 0,
         y = 0
       },
       properties = {},
       terrains = {},
-      tilecount = 204,
+      tilecount = 256,
       tiles = {}
     },
     {
-      name = "special",
-      firstgid = 205,
+      name = "triggers",
+      firstgid = 257,
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
@@ -65,70 +65,51 @@ return {
       }
     },
     {
-      name = "entities",
-      firstgid = 208,
+      name = "items",
+      firstgid = 260,
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "../img/tst/entities.png",
-      imagewidth = 64,
-      imageheight = 32,
+      image = "../img/items.png",
+      imagewidth = 288,
+      imageheight = 320,
       tileoffset = {
         x = 0,
         y = 0
       },
       properties = {},
       terrains = {},
-      tilecount = 2,
+      tilecount = 90,
       tiles = {}
     },
     {
-      name = "newset01",
-      firstgid = 210,
+      name = "Spritesheet Placeholder",
+      firstgid = 350,
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
-      margin = 0,
-      image = "../img/tst/newset01.png",
-      imagewidth = 480,
-      imageheight = 128,
+      margin = 32,
+      image = "../img/spr/Spritesheet Placeholder.png",
+      imagewidth = 2048,
+      imageheight = 512,
       tileoffset = {
         x = 0,
         y = 0
       },
       properties = {},
       terrains = {},
-      tilecount = 60,
-      tiles = {}
-    },
-    {
-      name = "ladder",
-      firstgid = 270,
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "../img/tst/ladder.png",
-      imagewidth = 200,
-      imageheight = 100,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 18,
+      tilecount = 1024,
       tiles = {}
     }
   },
   layers = {
     {
       type = "tilelayer",
-      name = "bg",
+      name = "Tile Layer 1",
       x = 0,
       y = 0,
-      width = 22,
+      width = 20,
       height = 15,
       visible = true,
       opacity = 1,
@@ -137,14 +118,46 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJy7ysDA8InK+CoUj5o7ai61zMUGYObiAqSaR6y5xJiPLxxIBbQyl5Ad1DAXGxiK5gIAFTbJvQ=="
+      data = "eJztkDEOACAIA/v/lf4AH6qDQyXi5MAAySWEUggMAKMpxa/oefXm+cI2LnDXmGieYKJrzrBLiTuy3EOv+hX1Ee/7blrsI85/qHcCV/p39A=="
+    },
+    {
+      type = "tilelayer",
+      name = "bg",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFgw0sphIeNY865lHLzFFAOQAAB55EIg=="
+    },
+    {
+      type = "tilelayer",
+      name = "darkness",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFgw18oRIeNW9wmjcKyAcADM5m8Q=="
     },
     {
       type = "tilelayer",
       name = "door",
       x = 0,
       y = 0,
-      width = 22,
+      width = 20,
       height = 15,
       visible = true,
       opacity = 1,
@@ -153,14 +166,14 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFowAV3KaRua9oZO4oGAW0BgAnZwHG"
+      data = "eJxjYBgFo2B4gelUNm85lc0bBeQDAB/mAT8="
     },
     {
       type = "tilelayer",
-      name = "entities",
+      name = "fg",
       x = 0,
       y = 0,
-      width = 22,
+      width = 20,
       height = 15,
       visible = true,
       opacity = 1,
@@ -169,7 +182,39 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFo4A24MJAOwAH4GMcNRcXuEg/q4YUAACDVgHP"
+      data = "eJxjYBgFo2D4g4NYxI5QYN5FIH4ExI+R8BUKzBsFxAEAFVoGtg=="
+    },
+    {
+      type = "tilelayer",
+      name = "drinks",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 12,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFo2BkgAhGBoZIIA4AYnfGgXbNKCAHAABHqgFN"
+    },
+    {
+      type = "tilelayer",
+      name = "special",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = false,
+      opacity = 0.5,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFlABGRupjartt1LzBZd5gTCtDBQAA6MwAaQ=="
     },
     {
       type = "objectgroup",
@@ -181,65 +226,31 @@ return {
       properties = {},
       objects = {
         {
-          id = 9,
-          name = "door",
+          id = 5,
+          name = "",
           type = "",
           shape = "rectangle",
-          x = 32,
-          y = 192,
-          width = 32,
+          x = 352,
+          y = 288,
+          width = 64,
           height = 64,
           rotation = 0,
           visible = true,
           properties = {
             ["event"] = "",
-            ["runOnKey"] = "up",
-            ["warp"] = "'overworld',480,256"
-          }
-        },
-        {
-          id = 10,
-          name = "king",
-          type = "",
-          shape = "rectangle",
-          x = 608,
-          y = 192,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["event"] = "",
             ["file"] = "summitofkings.lua",
-            ["oncePerCollision"] = "",
+            ["runOnLoad"] = "",
             ["runOnce"] = ""
-          }
-        },
-        {
-          id = 11,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 576,
-          y = 352,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["event"] = "",
-            ["file"] = "slugfight.lua",
-            ["oncePerCollision"] = ""
           }
         }
       }
     },
     {
       type = "tilelayer",
-      name = "fg",
+      name = "entities",
       x = 0,
       y = 0,
-      width = 22,
+      width = 20,
       height = 15,
       visible = true,
       opacity = 1,
@@ -248,58 +259,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFo2Dwg6tYMD65q+gGEGEeseYSYz65dlNiD6nmUiOsKLFrKJkLAKj/XgY="
-    },
-    {
-      type = "tilelayer",
-      name = "fadelr",
-      x = 0,
-      y = 0,
-      width = 22,
-      height = 15,
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJzbw0B9sBeI94yaO2ruqLmj5g4TcwElgxYY"
-    },
-    {
-      type = "tilelayer",
-      name = "fadeud",
-      x = 0,
-      y = 0,
-      width = 22,
-      height = 15,
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJzbx8DAsI8GeBSMglEwCugN9tMIAwCAeCC/"
-    },
-    {
-      type = "tilelayer",
-      name = "special",
-      x = 0,
-      y = 0,
-      width = 22,
-      height = 15,
-      visible = false,
-      opacity = 0.5,
-      offsetx = 0,
-      offsety = 0,
-      properties = {
-        ["collidable"] = "false",
-        ["special"] = "true"
-      },
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJw7y8DAcJZGmNpg1NyRay410995CvTiU3OeCD8QAtjcQg1zCdlDLXPx2UHLsoHWAAAR6EDk"
+      data = "eJxjYBgFo2BkggfMDAwPmalnnjwLA4MCC/XMGwWYAABqVwIP"
     }
   }
 }

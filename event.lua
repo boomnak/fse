@@ -13,7 +13,7 @@ function Event:init(game)
   
   -- Initialize the events table, which holds every event that is
   -- currently running.
-  if not self.events then
+  if self.events == nil then
     self.events = {}
   end
   
@@ -23,7 +23,7 @@ function Event:init(game)
   if not self.game.mb then
     self.game.mb = MessageBox(self.game)
     self.mb = self.game.mb
-    self.mbVisible = false
+    self.mb.visible = false
   end
 end
 
@@ -88,10 +88,8 @@ function Event:update(dt)
 end
 
 function Event:draw()
-  -- If the messagebox is visible, draw it.
-  if self.mbVisible then
-    self.mb:draw()
-  end
+  -- Draw the messagebox.
+  self.mb:draw()
   
   -- If screen is faded, draw black rectangle to cover it.
   if self.fade then
@@ -155,8 +153,7 @@ end
 -- Functions that apply to the messagebox.
 function SB.addMessage(text)
   -- Add a message to the messagebox.
-  Event.mbVisible = true
-  
+  SB.showMessage()
   Event.mb:addText(text)
 end
 
@@ -166,12 +163,12 @@ function SB.clearMessage()
 end
 
 function SB.showMessage()
-  Event.mbVisible = true
+  Event.mb.visible = true
 end
 
 function SB.hideMessage()
   -- Hide the messagebox.
-  Event.mbVisible = false
+  Event.mb.visible = false
 end
 
 function SB.talk(text)
@@ -292,6 +289,12 @@ function SB.fadeout(time)
   local t, dt = 0, 0
   Event.fade = true
   
+  if time == nil or time == 0 then
+    -- If no time is given or time is 0, set the screen to black right away.
+    Event.fadeAlpha = 255
+    return
+  end
+  
   while t < time do
     t = t + dt
     
@@ -306,6 +309,13 @@ end
 function SB.fadein(time)
   -- Fade screen from balck to non-black.
   local t, dt = 0, 0
+  
+  if time == nil or time == 0 then
+    -- If no time is given or time is 0, get rid of any fade right away.
+    Event.fadeAlpha = 0
+    Event.fade = false
+    return
+  end
   
   while t < time do
     t = t + dt

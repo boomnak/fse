@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="6">
+ <tileset firstgid="1" name="Fullset 01" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../img/Fullset 01.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="257" name="triggers" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../img/tst/triggers.png" width="96" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="solid" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="ladder" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="260" name="items" tilewidth="32" tileheight="32" tilecount="90" columns="9">
+  <image source="../img/items.png" width="288" height="320"/>
+ </tileset>
+ <tileset firstgid="350" name="Spritesheet Placeholder" tilewidth="32" tileheight="32" margin="32" tilecount="1024" columns="63">
+  <image source="../img/spr/Spritesheet Placeholder.png" width="2048" height="512"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJztkDEOACAIA/v/lf4AH6qDQyXi5MAAySWEUggMAKMpxa/oefXm+cI2LnDXmGieYKJrzrBLiTuy3EOv+hX1Ee/7blrsI85/qHcCV/p39A==
+  </data>
+ </layer>
+ <layer name="bg" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgw0sphIeNY865lHLzFFAOQAAB55EIg==
+  </data>
+ </layer>
+ <layer name="darkness" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgw18oRIeNW9wmjcKyAcADM5m8Q==
+  </data>
+ </layer>
+ <layer name="door" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2B4gelUNm85lc0bBeQDAB/mAT8=
+  </data>
+ </layer>
+ <layer name="fg" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2D4g4NYxI5QYN5FIH4ExI+R8BUKzBsFxAEAFVoGtg==
+  </data>
+ </layer>
+ <layer name="drinks" width="20" height="15" offsetx="0" offsety="12">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BkgAhGBoZIIA4AYnfGgXbNKCAHAABHqgFN
+  </data>
+ </layer>
+ <layer name="special" width="20" height="15" visible="0" opacity="0.5">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFlABGRupjartt1LzBZd5gTCtDBQAA6MwAaQ==
+  </data>
+ </layer>
+ <objectgroup name="object" visible="0">
+  <object id="5" x="352" y="288" width="64" height="64">
+   <properties>
+    <property name="event" value=""/>
+    <property name="file" value="summitofkings.lua"/>
+    <property name="runOnLoad" value=""/>
+    <property name="runOnce" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="entities" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2BkggfMDAwPmalnnjwLA4MCC/XMGwWYAABqVwIP
+  </data>
+ </layer>
+</map>

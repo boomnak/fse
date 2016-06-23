@@ -48,10 +48,6 @@ function MessageBox:addText(text)
   self.textLines[#self.textLines + 1] = text
 end
 
-function MessageBox:addLine(line)
-  self.textLines[#self.textLines + 1] = line
-end
-
 function MessageBox:clear()
   self.textLines = {}
 end

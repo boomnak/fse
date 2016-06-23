@@ -36,6 +36,11 @@ function Sidescroller:enter(prev, game, mapFile, playerx, playery)
   -- Make a new game camera.
   self.game.camera = Camera()
   
+  -- Initialize the Event handler.
+  Event:init(game)
+  -- Initialize the Input manager.
+  InputMan:init(game)
+  
   self.map = Map(game, mapFile)
   self.game.map = self.map
   self.game.mapName = mapFile
@@ -43,11 +48,6 @@ function Sidescroller:enter(prev, game, mapFile, playerx, playery)
   -- Set the player
   self.entities[#self.entities+1] = Player(
     game, {x = playerx, y = playery, width = 32, height = 32})
-  
-  -- Initialize the Event handler.
-  Event:init(game)
-  -- Initialize the Input manager.
-  InputMan:init(game)
 end
 
 -- update is called once per frame.

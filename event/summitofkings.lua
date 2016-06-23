@@ -1,15 +1,17 @@
 
+-- Fade the screen to black to start the game.
+fadeout(0)
+
 -- Freeze the player.
 local player = getEntity('player')
 player.input = false
 
-local x,y = getMapDimensions()
-
 vars.SOKevent = 1
---warp("potionSelect", x/4, y/4)
 
 local potionSelect = false
 vars.potion = 1
+
+fadein(0.5)
 
 while potionSelect == false do
   clearMessage()

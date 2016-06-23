@@ -28,6 +28,15 @@ function EventRunner:init(game, object)
     self.oncePerCollision = true
     self.collidedWithPlayer = false
   end
+  -- runOnLoad makes it so the event is run as soon as the map is loaded.
+  if object.properties.runOnLoad then
+    if self.file then
+      Event:addFromCaller(self, self.file)
+    elseif self.code then
+      Event:addStringFromCaller(self, self.code)
+    end
+    self.isRunning = true
+  end
   
   -- Position
   self.pos = Vector(object.x, object.y)

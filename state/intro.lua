@@ -9,10 +9,9 @@
 local GS = require 'lib.hump.gamestate'
 local suit = require 'lib.suit'
 
-local Battle = require 'state.battle'
+local Event = require 'event'
 local Overworld = require 'state.overworld'
 local SaveLoad = require 'saveload'
-local Search = require 'search'
 
 local Intro = {}
 
@@ -48,7 +47,8 @@ function Intro:update(dt)
   suit.Label('Boomnack FSE Project', suit.layout:row(200, 30))
   
   if suit.Button('Play Game', suit.layout:row(200, 30)).hit then
-    GS.switch(Overworld, self.game)
+    -- Go to the game's starting map.
+    self.game:switchMap('potionselect', 192, 288)
   elseif suit.Button('Load', suit.layout:row(200, 30)).hit then
     SaveLoad.load(self.game, 'save1.save')
   end
@@ -56,8 +56,6 @@ end
 
 function Intro:draw()
   suit.draw()
-
-  love.graphics.print(Search.binSearch({-1, 0, 2, 3, 5}, 3), 300, 10)
 end
 
 return Intro
