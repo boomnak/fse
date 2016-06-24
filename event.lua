@@ -27,42 +27,50 @@ function Event:init(game)
   end
 end
 
-function Event:addNew(file)
+function Event:addNew(file, runOnLoad)
   -- Create a new thread with it's own environment, allowing sandboxed
   -- execution of an event that can be paused and resumed.
   local event = love.filesystem.load('event/' .. file)
   setfenv(event, self.sandbox)
   
   -- Append the new event to the end of the current events table.
-  self.events[#self.events+1] = {event = coroutine.create(event)}
+  self.events[#self.events+1] = {
+    event = coroutine.create(event),
+    runOnLoad = runOnLoad
+  }
 end
 
-function Event:addFromCaller(caller, file)
+function Event:addFromCaller(caller, file, runOnLoad)
   local event = love.filesystem.load('event/' .. file)
   setfenv(event, self.sandbox)
   
   self.events[#self.events+1] = {
     event = coroutine.create(event),
+    runOnLoad = runOnLoad,
     caller = caller,
   }
 end
 
-function Event:addString(string)
+function Event:addString(string, runOnLoad)
   -- Create a new thread with it's own environment, allowing sandboxed
   -- execution of an event that can be paused and resumed.
   local event = loadstring(string)
   setfenv(event, self.sandbox)
   
   -- Append the new event to the end of the current events table.
-  self.events[#self.events+1] = {event = coroutine.create(event)}
+  self.events[#self.events+1] = {
+    event = coroutine.create(event),
+    runOnLoad = runOnLoad
+  }
 end
 
-function Event:addStringFromCaller(caller, string)
+function Event:addStringFromCaller(caller, string, runOnLoad)
   local event = loadstring(string)
   setfenv(event, self.sandbox)
   
   self.events[#self.events+1] = {
     event = coroutine.create(event),
+    runOnLoad = runOnLoad,
     caller = caller,
   }
 end
@@ -70,7 +78,7 @@ end
 function Event:update(dt)
   -- Update every currently running event.
   for i = #self.events,1,-1 do
-    local success, removeEvent = coroutine.resume(self.events[i].event, i, dt)
+    local success, removeEvent = coroutine.resume(self.events[i].event, i, dt, self.events[i].runOnLoad)
     if removeEvent or coroutine.status(self.events[i].event) == 'dead' then
       if self.events[i].caller then
         -- If the event was run by an event runner, tell it the event
@@ -173,12 +181,10 @@ end
 
 function SB.talk(text)
   -- Simplified method of displaying text.
-  SB.freezeEntities()
   SB.addMessage(text)
 	SB.waitFor("interact")
 	SB.clearMessage()
   SB.hideMessage()
-  SB.unfreezeEntities()
 end
 
 function SB.endEvent(eventNumber)
@@ -338,6 +344,16 @@ function SB.giveItem(item)
   local pitems = Event.game.player.items
   -- Add 'item' to the player's inventory.
   pitems[#pitems + 1] = item
+end
+
+function SB.addEventFromFile(file, runOnLoad)
+  -- Add a new event from a file.
+  Event:addNew(file, runOnLoad)
+end
+
+function SB.addEventFromString(str, runOnLoad)
+  -- Add a new event from a string.
+  Event:addFromString(str, runOnLoad)
 end
 
 return Event

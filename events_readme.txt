@@ -53,3 +53,6 @@ giveItem(item) -- Give the player the item.
 
 fadeout(time) -- Fade screen to black over 'time'. If time=0, do it instantly.
 fadein(time) -- Fade screen in from black over 'time'. If time=0, fadein instantly.
+
+addEventFromFile(file) -- Add a new event from a file.
+addEventFromString(str) -- Add a new event from a string.

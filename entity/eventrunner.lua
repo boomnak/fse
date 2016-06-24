@@ -31,9 +31,9 @@ function EventRunner:init(game, object)
   -- runOnLoad makes it so the event is run as soon as the map is loaded.
   if object.properties.runOnLoad then
     if self.file then
-      Event:addFromCaller(self, self.file)
+      Event:addFromCaller(self, self.file, true)
     elseif self.code then
-      Event:addStringFromCaller(self, self.code)
+      Event:addStringFromCaller(self, self.code, true)
     end
     self.isRunning = true
   end

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="32" tileheight="32" nextobjectid="3">
+ <tileset firstgid="1" name="triggers" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../img/tst/triggers.png" width="96" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="solid" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="ladder" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="4" name="fade" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../img/tst/fade.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="8" name="Fullset 01" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../img/Fullset 01.png" width="512" height="512"/>
+ </tileset>
+ <layer name="bg" width="30" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAEK2iMcYHhbi+p7sLnTlLAQNtLrrsoDeeBspda6ZKQ+0m1F5f+gbKX1uE0WO0l1xx6pcuBtncgAABTUKax
+  </data>
+ </layer>
+ <layer name="dark" width="30" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYMAEv2iMcYHhbi+p7sLnTlLAQNtLrrsoDeeBspda6ZKQ+0m1F5f+gbKX1uE0WO0l1xx6pcuBtncgAADybPgN
+  </data>
+ </layer>
+ <layer name="walls" width="30" height="15">
+  <data encoding="base64" compression="zlib">
+   eJybwcDAMAMN0xqg2zdS7CXVXfjcSayewWAvue4iFQwWe8nVT264kuvOgbaXVECqewerveSaQ6676aWPWvYOBAYAlQd0YQ==
+  </data>
+ </layer>
+ <layer name="ladders" width="30" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFQw3sGEL2UsOtI81ecuwgxV5y3TiY7KWHflrYOxTSx1CzlxoAAORcD9E=
+  </data>
+ </layer>
+ <layer name="doors" width="30" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgZYP4A2bt+gOwdBaNgFAwPMFp20R4AADG3Ap0=
+  </data>
+ </layer>
+ <objectgroup name="object" visible="0">
+  <object id="1" x="896" y="32" width="32" height="64">
+   <properties>
+    <property name="event" value=""/>
+    <property name="runOnKey" value="up"/>
+    <property name="warp" value="'oldlibrary',128,320"/>
+   </properties>
+  </object>
+  <object id="2" x="32" y="384" width="32" height="64">
+   <properties>
+    <property name="event" value=""/>
+    <property name="runOnKey" value="up"/>
+    <property name="warp" value="'throneroom',480,288"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="fadelr" width="30" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYaA/YAVillF7R+0dtXfU3lF7R+0dBPYCAN9bAIg=
+  </data>
+ </layer>
+ <layer name="fadeud" width="30" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjY2BgYBsAPApGwSgYBaNgFCAD9gHCAAMHAYc=
+  </data>
+ </layer>
+ <layer name="special" width="30" height="15" visible="0" opacity="0.5">
+  <data encoding="base64" compression="zlib">
+   eJzNkzEKADAIAyP+/89dpWCbFEoMZBHC3WIAiCH9HTdX9eo8U9i4uafNzatymUzhqlH/JLcdy+32Li6bV9+JXPWHFN/Ou96YuLmOLtNBAR8=
+  </data>
+ </layer>
+</map>

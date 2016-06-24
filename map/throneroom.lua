@@ -8,7 +8,7 @@ return {
   height = 15,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 3,
+  nextobjectid = 9,
   properties = {},
   tilesets = {
     {
@@ -153,6 +153,22 @@ return {
       data = "eJybyMDAMBGKyQUTceBR80bNGzUPt3mjmHQMAP8pUrM="
     },
     {
+      type = "tilelayer",
+      name = "doors",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFo2B4ghlU1rOCDPPI0TMKcAMA7N0CgQ=="
+    },
+    {
       type = "objectgroup",
       name = "object",
       visible = false,
@@ -163,7 +179,7 @@ return {
       objects = {
         {
           id = 1,
-          name = "",
+          name = "kingathens",
           type = "",
           shape = "rectangle",
           x = 416,
@@ -174,9 +190,43 @@ return {
           visible = true,
           properties = {
             ["event"] = "",
-            ["file"] = "throneroom.lua",
+            ["file"] = "kingathens.lua",
             ["runOnLoad"] = "",
             ["runOnce"] = ""
+          }
+        },
+        {
+          id = 3,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 288,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["event"] = "",
+            ["runOnKey"] = "up",
+            ["warp"] = "'overworld',32,32"
+          }
+        },
+        {
+          id = 4,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 512,
+          y = 288,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["event"] = "",
+            ["runOnKey"] = "up",
+            ["warp"] = "'guardhouse',64,384"
           }
         }
       }

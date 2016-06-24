@@ -19,6 +19,8 @@ talk("King: By law, you shall face the ultimate\n punishment of death for your c
 talk("Player: There must be some sort of mistake...")
 talk("King: We'll make this quick.")
 talk("King: Guards! proceed to the execution.")
+clearMessage()
+hideMessage()
 
 --local mage = getEntity('mage')
 
@@ -29,15 +31,19 @@ talk("King: Guards! proceed to the execution.")
 --player:setFrame(2)
 --player radiates light
 
---teleport("oldLibrary", x/6, y/6)
+teleport("oldLibrary", 512, 160)
+
+local player = getEntity('player')
+player.input = false
 
 --player:setFrame(3)
 --player is down on ground
+--sleep(0.2)
 --player:setFrame(1)
 --player gets back up
+--sleep(0.2)
 
 talk("I wonder what happened back there?")
+player.input = true
 
 vars.SOKevent = 2
-
-player.input = true

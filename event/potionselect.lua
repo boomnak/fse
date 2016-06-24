@@ -5,8 +5,6 @@ fadeout(0)
 local player = getEntity('player')
 player.input = false
 
-vars.SOKevent = 1
-
 local potionSelect = false
 vars.potion = 1
 
@@ -46,11 +44,13 @@ while potionSelect == false do
 	elseif down("interact") then
 		potionSelect = true
 	end
-	sleep(0.25)
+	sleep(0.1)
 	--sleep function used to make sure a click doesn't alternate too fast when picking a potion
 end
 clearMessage()
 
 talk("Player: ...")
+
+vars.SOKevent = 1
 
 teleport("throneroom", 192, 288)

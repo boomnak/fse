@@ -8,7 +8,7 @@ return {
   height = 15,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 6,
+  nextobjectid = 2,
   properties = {},
   tilesets = {
     {
@@ -65,61 +65,26 @@ return {
       }
     },
     {
-      name = "items",
+      name = "fade",
       firstgid = 260,
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
       margin = 0,
-      image = "../img/items.png",
-      imagewidth = 288,
-      imageheight = 320,
+      image = "../img/tst/fade.png",
+      imagewidth = 128,
+      imageheight = 32,
       tileoffset = {
         x = 0,
         y = 0
       },
       properties = {},
       terrains = {},
-      tilecount = 90,
-      tiles = {}
-    },
-    {
-      name = "Spritesheet Placeholder",
-      firstgid = 350,
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 32,
-      image = "../img/spr/Spritesheet Placeholder.png",
-      imagewidth = 2048,
-      imageheight = 512,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 945,
+      tilecount = 4,
       tiles = {}
     }
   },
   layers = {
-    {
-      type = "tilelayer",
-      name = "Tile Layer 1",
-      x = 0,
-      y = 0,
-      width = 20,
-      height = 15,
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJztkDEOACAIA/v/lf4AH6qDQyXi5MAAySWEUggMAKMpxa/oefXm+cI2LnDXmGieYKJrzrBLiTuy3EOv+hX1Ee/7blrsI85/qHcCV/p39A=="
-    },
     {
       type = "tilelayer",
       name = "bg",
@@ -134,11 +99,11 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFgw0sphIeNY865lHLzFFAOQAAB55EIg=="
+      data = "eJxjYBi5YDKZeNQ8wuZTA1Bq3kI0vIRIPFTNGwkAAEXWPl8="
     },
     {
       type = "tilelayer",
-      name = "darkness",
+      name = "dark",
       x = 0,
       y = 0,
       width = 20,
@@ -150,7 +115,39 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFgw18oRIeNW9wmjcKyAcADM5m8Q=="
+      data = "eJxjYBi54DOZeNQ8wuZTA1Bq3mAPP1rHx3AEAJyhYrk="
+    },
+    {
+      type = "tilelayer",
+      name = "walls",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJybyMDAMBGKJ1MBTxxC5pELRs3DHh+49JAbv5SaR23/DnbzqJFXBrt5AMV/cCE="
+    },
+    {
+      type = "tilelayer",
+      name = "books",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFgxU8RMKE5HGpoaV5owAVUDv8RuMDEwAAXoUTVw=="
     },
     {
       type = "tilelayer",
@@ -166,7 +163,51 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFo2B4gelUNm85lc0bBeQDAB/mAT8="
+      data = "eJxjYBgFo2AUEANmUNm8FVQ2byQAALU/AUE="
+    },
+    {
+      type = "tilelayer",
+      name = "ladder",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFo4C6YOOoeYPKvOEEAAP2A3Y="
+    },
+    {
+      type = "objectgroup",
+      name = "object",
+      visible = false,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      objects = {
+        {
+          id = 1,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 96,
+          y = 320,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["event"] = "",
+            ["runOnKey"] = "up",
+            ["warp"] = "'guardhouse',864,32"
+          }
+        }
+      }
     },
     {
       type = "tilelayer",
@@ -182,11 +223,11 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFo2D4g4NYxI5QYN5FIH4ExI+R8BUKzBsFxAEAFVoGtg=="
+      data = "eJxjYBgFo2AUjIKhAQAEsAAB"
     },
     {
       type = "tilelayer",
-      name = "drinks",
+      name = "fadeud",
       x = 0,
       y = 0,
       width = 20,
@@ -194,11 +235,27 @@ return {
       visible = true,
       opacity = 1,
       offsetx = 0,
-      offsety = 12,
+      offsety = 0,
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFo2BkgAhGBoZIIA4AYnfGgXbNKCAHAABHqgFN"
+      data = "eJxjY2RgYKMiHgWjYBSMAhhgZ6QuBgCaXgEt"
+    },
+    {
+      type = "tilelayer",
+      name = "fadelr",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYWSgGmAFmsUyat6oeaPmjZpHI/MAhmkApg=="
     },
     {
       type = "tilelayer",
@@ -214,52 +271,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBgFlABGRupjartt1LzBZd5gTCtDBQAA6MwAaQ=="
-    },
-    {
-      type = "objectgroup",
-      name = "object",
-      visible = false,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      objects = {
-        {
-          id = 5,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 352,
-          y = 288,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["event"] = "",
-            ["file"] = "potionselect.lua",
-            ["runOnLoad"] = "",
-            ["runOnce"] = ""
-          }
-        }
-      }
-    },
-    {
-      type = "tilelayer",
-      name = "entities",
-      x = 0,
-      y = 0,
-      width = 20,
-      height = 15,
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJxjYBgFo2BkggfMDAwPmalnnjwLA4MCC/XMGwWYAABqVwIP"
+      data = "eJxjYBgagJGRMozNPErcMmoe7jBmJjM+qG0eLsBMICyGqnnUzB+DFQAAcpoApQ=="
     }
   }
 }

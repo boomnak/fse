@@ -21,7 +21,7 @@
  <tileset firstgid="260" name="items" tilewidth="32" tileheight="32" tilecount="90" columns="9">
   <image source="../img/items.png" width="288" height="320"/>
  </tileset>
- <tileset firstgid="350" name="Spritesheet Placeholder" tilewidth="32" tileheight="32" margin="32" tilecount="1024" columns="63">
+ <tileset firstgid="350" name="Spritesheet Placeholder" tilewidth="32" tileheight="32" margin="32" tilecount="945" columns="63">
   <image source="../img/spr/Spritesheet Placeholder.png" width="2048" height="512"/>
  </tileset>
  <layer name="Tile Layer 1" width="20" height="15">
@@ -63,7 +63,7 @@
   <object id="5" x="352" y="288" width="64" height="64">
    <properties>
     <property name="event" value=""/>
-    <property name="file" value="summitofkings.lua"/>
+    <property name="file" value="potionselect.lua"/>
     <property name="runOnLoad" value=""/>
     <property name="runOnce" value=""/>
    </properties>
