@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="3">
+ <tileset firstgid="1" name="Fullset 01" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../img/Fullset 01.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="257" name="triggers" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../img/tst/triggers.png" width="96" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="solid" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="ladder" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="260" name="fade" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../img/tst/fade.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="264" name="Spritesheet Placeholder1" tilewidth="32" tileheight="32" tilecount="1024" columns="64">
+  <image source="../img/spr/Spritesheet Placeholder1.png" width="2048" height="512"/>
+ </tileset>
+ <layer name="bg" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYECAhWRiXGDUvFHzRs0bBdQEAF50YNs=
+  </data>
+ </layer>
+ <layer name="dark" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYECAL2RiXGDUvFHzRs0bBdQEAAWbksk=
+  </data>
+ </layer>
+ <layer name="walls" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJybyMDAMBGKyQUTceBR80bNGzUPt3mjmHQMAP8pUrM=
+  </data>
+ </layer>
+ <objectgroup name="object" visible="0">
+  <object id="1" x="416" y="288" width="64" height="64">
+   <properties>
+    <property name="event" value=""/>
+    <property name="file" value="throneroom.lua"/>
+    <property name="runOnLoad" value=""/>
+    <property name="runOnce" value=""/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="king" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2Bkg5PMDAynmKlnHicLAwMXC/XMGwUIAADR1AG1
+  </data>
+ </layer>
+ <layer name="fg" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUFFHZvCYqmzcKIAAAcD8A9Q==
+  </data>
+ </layer>
+ <layer name="fadeud" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjY2RgYKMiHgWjYBSMAhhgZ6QuBgCaXgEt
+  </data>
+ </layer>
+ <layer name="fadelr" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYWSgGmAFmsUyat6oeaPmjZpHI/MAhmkApg==
+  </data>
+ </layer>
+ <layer name="special" width="20" height="15" visible="0" opacity="0.5">
+  <data encoding="base64" compression="zlib">
+   eJxjYIAARkbKMDrAJkYsGDVv1LyRYB4189tIAQAp2wBp
+  </data>
+ </layer>
+</map>
