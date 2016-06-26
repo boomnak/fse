@@ -44,12 +44,12 @@ end
 function Intro:update(dt)
   suit.layout:reset()
   
-  suit.Label('Boomnack FSE Project', suit.layout:row(200, 30))
+  suit.Label('Boomnack FSE Project', suit.layout:row(300, 30))
   
-  if suit.Button('Play Game', suit.layout:row(200, 30)).hit then
+  if suit.Button('Play Game', suit.layout:row(300, 30)).hit then
     -- Go to the game's starting map.
     self.game:switchMap('potionselect', 192, 288)
-  elseif suit.Button('Load', suit.layout:row(200, 30)).hit then
+  elseif suit.Button('Load', suit.layout:row(300, 30)).hit then
     SaveLoad.load(self.game, 'save1.save')
   end
 end

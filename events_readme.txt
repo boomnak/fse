@@ -44,16 +44,20 @@ moveTo(entity, x, y, time) -- Move 'entity' to position x,y over 'time' seconds.
 waitFor(key) -- Pause the event until user presses key. 'key' defaults to
     interact, which is the c key.
 down(key) -- Returns whether or not the given key is down.
-battle(enemies) -- Starts a battle against 'enemies'. enemies should be a table
+battle(enemies, cantFlee) -- Starts a battle against 'enemies'. enemies should be a table
     of strings containing the names of enemies to battle, i.e. battle({ 'slug' })
 
 getMapDimensions() -- Returns the width and height of the current map.
 
+getPlayerStats() -- Returns the table of player statistics.
 giveItem(item) -- Give the player the item.
 changeGold(gold) -- Change the player's gold by gold amount.
+getGold() -- Get the amount of gold the player has.
 
 fadeout(time) -- Fade screen to black over 'time'. If time=0, do it instantly.
 fadein(time) -- Fade screen in from black over 'time'. If time=0, fadein instantly.
 
 addEventFromFile(file) -- Add a new event from a file.
 addEventFromString(str) -- Add a new event from a string.
+
+wonGame() -- Makes the player win the game.

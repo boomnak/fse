@@ -13,18 +13,24 @@ Player.filterType = 'cross'
 Player.name = 'player'
 
 function Player:init(game, entity)
-  self.imager = love.graphics.newImage('img/spr/player.png')
-  self.imagel = love.graphics.newImage('img/spr/playerleft.png')
-  self.image = self.imager
+  self.imager = {love.graphics.newImage('img/spr/playerright.png'),
+                love.graphics.newImage('img/spr/playerright2.png')}
+  self.imagel = {love.graphics.newImage('img/spr/playerleft.png'),
+                 love.graphics.newImage('img/spr/playerleft2.png')}
+  self.image = self.imager[1]
   -- Position.
   self.pos = Vector(entity.x, entity.y)
   -- Dimensions
   self.dim = Vector(self.image:getWidth(), self.image:getHeight())
   self.hitbox = { pos = self.pos:clone(), dim = self.dim:clone() }
-  self.speed = 100 -- running speed, in m/s
+  self.speed = 150 -- running speed, in m/s
   self.ySpeed = 0
   self.onLadder = false -- Not on a ladder.
   self.input = true
+  
+  self.animationDelay = 0.1
+  self.currFrame = 1
+  self.timer = 0
   
   self.game = game
   self.game.world:add(self, self.pos.x, self.pos.y, self.dim.x, self.dim.y)
@@ -41,14 +47,33 @@ function Player:update(dt)
     
     if InputMan:down('left') then 
       goal.x = goal.x - self.speed*dt
-      self.image = self.imagel
+      self.timer = self.timer + dt
+      if self.timer >= self.animationDelay then
+        self.timer = 0
+        if self.currFrame == 1 then
+          self.currFrame = 2
+        else
+          self.currFrame = 1
+        end
+      end
+      self.image = self.imagel[self.currFrame]
+      
     elseif InputMan:down('right') then
       goal.x = goal.x + self.speed*dt
-      self.image = self.imager
+      self.timer = self.timer + dt
+      if self.timer >= self.animationDelay then
+        self.timer = 0
+        if self.currFrame == 1 then
+          self.currFrame = 2
+        else
+          self.currFrame = 1
+        end
+      end
+      self.image = self.imager[self.currFrame]
     end
     
     if self.canJump and love.keyboard.isDown('space') then
-      self.ySpeed = -320
+      self.ySpeed = -200
     end
     self.canJump = false
   end
@@ -57,7 +82,7 @@ function Player:update(dt)
     goal.y = goal.y - self.speed*dt
   else
     -- apply gravity
-    self.ySpeed = self.ySpeed + 400*dt
+    self.ySpeed = self.ySpeed + 300*dt
     goal.y = goal.y + self.ySpeed*dt
   end
   

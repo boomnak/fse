@@ -8,7 +8,7 @@ function BattlePlayer:init(game, battle, stats)
   self.game = game
   self.battle = battle
   self.stats = stats
-  self.image = love.graphics.newImage('img/spr/player.png')
+  self.image = love.graphics.newImage('img/spr/playerright.png')
   self.turnTime = 1
   self.time = 0
 end

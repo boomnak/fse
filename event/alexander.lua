@@ -5,21 +5,25 @@ if vars.SOKevent == 0 then
 elseif vars.SOKevent == 2 then
   talk("???: Who are you, and what are you doing here?")
 elseif vars.SOKevent == 3 then
-  talk("Alexander: The King eh?")
-  talk("Alexander: I see then, but first you will be tested to see if your ready.")
-  talk("Alexander: Since you have been appointed by the king, you must face the special test.")
-  talk("Player: Special test?")
-  talk("Alexander: A mighty test that is meant to test out only the best of our trainees.")
-  talk("Alexander: You must clear out the dungeon south to this kingdom, and retrieve the special item.")
-  talk("Alexander: Take this shield and this sword, they will help.")
-  talk("Quest Received: Clear Dungeon!")
+  talk("Alexander: The King wants you to get his crown?")
+  talk("Alexander: I hope you realize this is almost certainly a suicide mission.")
+  talk("Player: I'd rather a chance, however slim, to a guaranteed execution.")
+  talk("Alexander: I suppose your right.")
+  talk("Alexander: The wizard has holed himself up in the tower to the south.")
+  talk("Alexander: You will have to pass through the forest first.")
+  talk("Alexander: You must be careful, as he has filled those woods with vile monsters.")
+  talk("Alexander: Then you will have to pass his guards.")
+  talk("Alexander: Finally, you must pass the hardest trial - fighting the wizard himself.")
+  talk("Alexander: Take this shield and this sword, they will come in handy.")
   giveItem('sword')
   giveItem('shield')
   vars.SOKevent = 4
   --for this event the player has to go and retrieve the treasure at the end of the dungeon and bring it back to alexander
   --picking up the weapon activates SOKevent 5
 elseif vars.SOKevent == 4 then
-  talk("Alexander: How is that dungeon?")
+  talk("Alexander: Haven't got the crown yet, eh?")
+
+--[[
 elseif vars.SOKevent == 5 then
   talk("Alexander: So you have completed the given task I see.")
   --player gives treasure to Alexander
@@ -79,4 +83,5 @@ elseif vars.SOKevent == 14 then
   --Summit of Kings event ends here
 elseif vars.SOKevent == 15 then
   talk("What is it my king?")
+--]]
 end

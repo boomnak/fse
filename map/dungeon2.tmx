@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="20">
+ <tileset firstgid="1" name="triggers" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../img/tst/triggers.png" width="96" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="solid" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="ladder" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="4" name="fade" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../img/tst/fade.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="8" name="Fullset 01" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../img/Fullset 01.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="264" name="wizard" tilewidth="25" tileheight="81" tilecount="1" columns="1">
+  <image source="../img/spr/wizard.png" width="25" height="81"/>
+ </tileset>
+ <layer name="bg" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYIAAGwoxOoCJSxPA1DYPl5kwOXLMw2YmunnEqh8K5hETfvR2HyE3YjODUvPwmYnPPHzpmZQ8QGzaJGQOKWYOdgAAtjknJQ==
+  </data>
+ </layer>
+ <layer name="dark" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYICA3xRidDDYzEM3d9S84WUeNd00mP1JazzYAQCj2uR0
+  </data>
+ </layer>
+ <layer name="walls" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJyLYWBg0GGgHEhDccyoeaPmDaB5MEwt86gFhop5MVTCtDIPACv0FRk=
+  </data>
+ </layer>
+ <layer name="walltop" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjAII4KYSphUAAGYkAMc=
+  </data>
+ </layer>
+ <objectgroup name="object" visible="0">
+  <object id="11" x="0" y="320" width="32" height="96">
+   <properties>
+    <property name="event" value=""/>
+    <property name="warp" value="'dungeon1',896,64"/>
+   </properties>
+  </object>
+  <object id="17" x="416" y="335" width="32" height="96">
+   <properties>
+    <property name="entity" value=""/>
+    <property name="file" value="wizard.lua"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="fadelr" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYaAuYBk1b9S8UfNGzaOReQCasAA9
+  </data>
+ </layer>
+ <layer name="fadeud" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjY2BgYKMiHgWjYBSMAhhgpzIGADx2AQU=
+  </data>
+ </layer>
+ <layer name="special" width="20" height="15" visible="0" opacity="0.5">
+  <data encoding="base64" compression="zlib">
+   eJxjYGBgYKQShgFkNrlg1LxR88gxDz0tUmoetcBQMY9aZQG13QcDAJn0ADw=
+  </data>
+ </layer>
+</map>

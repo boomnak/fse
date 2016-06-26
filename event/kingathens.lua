@@ -3,11 +3,17 @@ local _, _, runOnLoad = ...
 local kingAthens, kingAthensNum = getEntity("kingathens")
 local player = getEntity('player')
 
-if vars.SOKevent == 1 and runOnLoad then
-  -- If SOKevent is 1, run the throneroom event.
-  addEventFromFile('throneroom.lua')
-elseif vars.SOKevent == 0 then
+if runOnLoad then
+  if vars.SOKevent == 1 then
+    addEventFromFile('throneroom.lua')
+  else
+    return
+  end
+end
+
+if vars.SOKevent == 0 then
   removeEntity(kingAthensNum) --Make a similar function to disable the character from the game
+  
 elseif vars.SOKevent == 2 then
   player.input = false -- Prevent the player from moving.
   talk("King: What!")
@@ -17,17 +23,34 @@ elseif vars.SOKevent == 2 then
   talk("King: You just seemed to vanish into thin air.")
   talk("Player: I don't know what happened either.")
   talk("King: Interesting, so there is more to you than I thought.")
-  talk("King: Tell you what, I'll excuse you of your crime.")
-  talk("Player: Did you finally realize that I did not steal this potion?")
-  talk("King: In return for me excusing you, you must become one of my guards.")
-  talk("King: Now, go and see commander Alexander in the guardhouse for your first task.")
+  talk("King: You could be useful.")
+  talk("King: I have an idea.")
+  talk("King: This crown I am wearing is not, in fact, my normal crown.")
+  talk("King: The crown that had been in my family for generations has been stolen by an evil wizard.")
+  talk("King: Every man I have sent out to retreive it has failed.")
+  talk("King: You, however, may just be able to accomplish this.")
+  talk("King: If you are successful in obtaining my crown, I'll excuse you of your crime.")
+  talk("Player: Well, if the alternative is execution, I might as well try.")
+  talk("King: That's the spirit. Now, go and see commander Alexander in the guardhouse for the details.")
   vars.SOKevent = 3
   player.input = true
 
 elseif vars.SOKevent == 3 then
   talk("King: Alexander is the head of the guards here at our castle.")
-elseif vars.SOKevent > 3 and vars.SOKevent < 8 then
-  talk("King: How are you doing?")
+
+elseif vars.gotCrown then
+  -- If the player has retrieved the crown, they won the game.
+  player.input = false
+  talk("King: Do you have my crown?")
+  talk("Player: It wasn't easy, but I managed to get it.")
+  talk("King: Splendid! Now, for your act of service to the nation, you are hearby pardoned of all crimes.")
+  sleep(0.1)
+  wonGame()
+
+elseif vars.SOKevent > 3 then
+  talk("King: Get me my crown!")
+
+--[[
 elseif vars.SOKevent == 8 then
   talk("King: Lets get going shall we!")
   teleport("H'atahaCastle", x/4, y/4)
@@ -76,4 +99,5 @@ elseif vars.SOKevent == 9 then
   --where you find Fatal.
 elseif vars.SOKevent == 12 then
   removeEntity(kingAthensNum)
+--]]
 end

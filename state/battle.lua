@@ -12,9 +12,9 @@ local Battle = {}
 function Battle:init()
 end
 
-function Battle:enter(prev, game, enemies)
+function Battle:enter(prev, game, enemies, cantFlee)
   self.game = game
-  
+
   self.enemies = {}
   for i = 1, #enemies do
     -- Load up each enemy.
@@ -41,19 +41,23 @@ function Battle:enter(prev, game, enemies)
       end,
     },
     {
-      name = 'Flee',
-      action = function()
-        -- Flee, go back to the previous game state.
-        GS.pop()
-      end,
-    },
-    {
       name = 'Items',
       action = function()
         GS.push(ItemSelect, self.game, self.game.player, true)
       end,
     },
   }
+  
+  if not cantFlee then
+    -- If cantFlee wasn't set, then allow the player to flee the battle.
+    self.options[#self.options + 1] = {
+      name = 'Flee',
+      action = function()
+        -- Flee, go back to the previous game state.
+        GS.pop()
+      end,
+    }
+  end
   
   InputMan:init(game)
 end

@@ -5,39 +5,39 @@ fadeout(0)
 local player = getEntity('player')
 player.input = false
 
+-- Get the player's statistics.
+local pstats = getPlayerStats()
+
 local potionSelect = false
 vars.potion = 1
 
 fadein(0.5)
 
+talk("Welcome to Oras! What'll you be having?")
+sleep(0.1)
+
 while potionSelect == false do
   clearMessage()
-  addMessage("Select a drink!")
-  addMessage("press 'c' key to select your drink!")
+  addMessage("Pick your poison!")
+  addMessage("(press c to confirm, left and right to choose)")
 	if vars.potion == 1 then  
-		addMessage("potion of the warrior")
-		addMessage("strength boost")
+		addMessage("Potion of the Warrior (+1 attack).")
 	elseif vars.potion == 2 then
-		addMessage("potion of the knight")
-		addMessage("defence boost")
+		addMessage("Potion of the Knight (+1 defence).")
 	elseif vars.potion == 3 then
-		addMessage("potion of the archer")
-		addMessage("multiple hit damage boost")
-	elseif vars.potion == 4 then
-		addMessage("potion of the mage")
-		addMessage("magic boost")
+		addMessage("Potion of the Healer (+5 health).")
 	end
 	--displays the potion's power up
 	
 	if down("right") then
-		if vars.potion == 4 then
+		if vars.potion == 3 then
 			vars.potion = 1
 		else
 			vars.potion = vars.potion + 1
 		end
 	elseif down("left") then
 		if vars.potion == 1 then
-			vars.potion = 4
+			vars.potion = 3
 		else
 			vars.potion = vars.potion - 1
 		end
@@ -48,6 +48,15 @@ while potionSelect == false do
 	--sleep function used to make sure a click doesn't alternate too fast when picking a potion
 end
 clearMessage()
+
+if vars.potion == 1 then
+  pstats.attack = pstats.attack + 1
+elseif vars.potion == 2 then
+  pstats.defence = pstats.defence + 1
+elseif vars.potion == 3 then
+  pstats.HP = pstats.HP + 5
+  pstats.maxHP = pstats.maxHP + 5
+end
 
 talk("Player: ...")
 

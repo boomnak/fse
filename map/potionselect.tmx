@@ -22,7 +22,7 @@
   <image source="../img/items.png" width="288" height="320"/>
  </tileset>
  <tileset firstgid="350" name="Spritesheet Placeholder" tilewidth="32" tileheight="32" margin="32" tilecount="945" columns="63">
-  <image source="../img/spr/Spritesheet Placeholder.png" width="2048" height="512"/>
+  <image source="../img/spr/Spritesheet Placeholder1.png" width="2048" height="512"/>
  </tileset>
  <layer name="Tile Layer 1" width="20" height="15">
   <data encoding="base64" compression="zlib">

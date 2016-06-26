@@ -90,7 +90,7 @@ return {
       tileheight = 32,
       spacing = 0,
       margin = 32,
-      image = "../img/spr/Spritesheet Placeholder.png",
+      image = "../img/spr/Spritesheet Placeholder1.png",
       imagewidth = 2048,
       imageheight = 512,
       tileoffset = {

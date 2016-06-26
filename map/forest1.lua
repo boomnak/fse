@@ -8,7 +8,7 @@ return {
   height = 15,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 5,
+  nextobjectid = 6,
   properties = {},
   tilesets = {
     {
@@ -120,6 +120,25 @@ return {
           }
         }
       }
+    },
+    {
+      name = "green king",
+      firstgid = 374,
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 32,
+      image = "../img/spr/green king.png",
+      imagewidth = 2496,
+      imageheight = 96,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 234,
+      tiles = {}
     }
   },
   layers = {
@@ -188,6 +207,22 @@ return {
       data = "eJzVzMVOQ1EUBdDXCe5SXIu2uM5xK+7uDv8/ZH3AvQmECZxkZU/22Uny/24ulSTzLLDIUur7nQJZSBHFlLDMCqussR7Yi3VKZRnlVFDJBnk22WI7sBfrVMlqaqiljh122WOfg8BerFMv0zTQSBOHHHHMCaeBvVinWbbQShvtnHHOBZdcBfZinQ7ZSRfdZLjmhlvuuA/sxTo9spc++hnggUeeeOYlsBfrDMosOYYY5pU33vngM7AX64zIUcYYZyLw+5Ob9D/FNDPM/nLvr98XcgYlcg=="
     },
     {
+      type = "tilelayer",
+      name = "entity",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFo2BogLmM1DXvFZXNGwW0BwDTgAGK"
+    },
+    {
       type = "objectgroup",
       name = "object",
       visible = false,
@@ -226,6 +261,23 @@ return {
           properties = {
             ["event"] = "",
             ["warp"] = "'forest2',64,320"
+          }
+        },
+        {
+          id = 5,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 352,
+          y = 256,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["event"] = "",
+            ["file"] = "merchant.lua",
+            ["oncePerCollision"] = ""
           }
         }
       }

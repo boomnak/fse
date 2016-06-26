@@ -13,7 +13,7 @@ Player.filterType = 'cross'
 Player.name = 'player'
 
 function Player:init(game, entity)
-  self.image = love.graphics.newImage('img/spr/player.png')
+  self.image = love.graphics.newImage('img/spr/playerright.png')
   self.pos = Vec(entity.x, entity.y)
   -- Dimensions
   self.dim = Vec(self.image:getWidth(), self.image:getHeight())

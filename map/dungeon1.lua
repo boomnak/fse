@@ -8,7 +8,7 @@ return {
   height = 15,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 13,
+  nextobjectid = 17,
   properties = {},
   tilesets = {
     {
@@ -203,7 +203,55 @@ return {
           visible = true,
           properties = {
             ["event"] = "",
-            ["warp"] = "'dungeon2',,"
+            ["warp"] = "'dungeon2',32,352"
+          }
+        },
+        {
+          id = 13,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 64,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["entity"] = "",
+            ["file"] = "evilguard.lua"
+          }
+        },
+        {
+          id = 15,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 576,
+          y = 352,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["entity"] = "",
+            ["file"] = "evilguard.lua"
+          }
+        },
+        {
+          id = 16,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 768,
+          y = 96,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["entity"] = "",
+            ["file"] = "evilguard.lua"
           }
         }
       }

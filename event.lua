@@ -5,6 +5,7 @@ local GS = require 'lib.hump.gamestate'
 local Battle = require 'state.battle'
 local InputMan = require 'inputman'
 local MessageBox = require 'messagebox'
+local WonGame = require 'state.wongame'
 
 local Event = {}
 
@@ -284,9 +285,9 @@ function SB.down(key)
   end
 end
 
-function SB.battle(enemies)
+function SB.battle(enemies, cantFlee)
   -- Start a battle with enemies.
-  GS.push(Battle, Event.game, enemies)
+  GS.push(Battle, Event.game, enemies, cantFlee)
   coroutine.yield()
 end
 
@@ -346,6 +347,11 @@ function SB.giveItem(item)
   pitems[#pitems + 1] = item
 end
 
+function SB.getGold()
+  -- Return the amount of gold the player has.
+  return Event.game.player.gold
+end
+
 function SB.changeGold(gold)
   -- Change the amount of gold the player has. Used for shops.
   Event.game.player.gold = Event.game.player.gold + gold
@@ -359,6 +365,16 @@ end
 function SB.addEventFromString(str, runOnLoad)
   -- Add a new event from a string.
   Event:addFromString(str, runOnLoad)
+end
+
+function SB.getPlayerStats()
+  -- Return the player statistics.
+  return Event.game.player
+end
+
+function SB.wonGame()
+  -- When the player wins the game, flip to the won game state.
+  GS.switch(WonGame)
 end
 
 return Event

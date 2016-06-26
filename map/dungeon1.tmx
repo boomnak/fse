@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="32" tileheight="32" nextobjectid="13">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="32" tileheight="32" nextobjectid="17">
  <tileset firstgid="1" name="triggers" tilewidth="32" tileheight="32" tilecount="3" columns="3">
   <image source="../img/tst/triggers.png" width="96" height="32"/>
   <tile id="0">
@@ -56,7 +56,25 @@
   <object id="12" x="928" y="32" width="32" height="96">
    <properties>
     <property name="event" value=""/>
-    <property name="warp" value="'dungeon2',,"/>
+    <property name="warp" value="'dungeon2',32,352"/>
+   </properties>
+  </object>
+  <object id="13" x="224" y="64" width="32" height="64">
+   <properties>
+    <property name="entity" value=""/>
+    <property name="file" value="evilguard.lua"/>
+   </properties>
+  </object>
+  <object id="15" x="576" y="352" width="32" height="64">
+   <properties>
+    <property name="entity" value=""/>
+    <property name="file" value="evilguard.lua"/>
+   </properties>
+  </object>
+  <object id="16" x="768" y="96" width="32" height="64">
+   <properties>
+    <property name="entity" value=""/>
+    <property name="file" value="evilguard.lua"/>
    </properties>
   </object>
  </objectgroup>
