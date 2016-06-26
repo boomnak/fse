@@ -8,7 +8,7 @@ function BattlePlayer:init(game, battle, stats)
   self.game = game
   self.battle = battle
   self.stats = stats
-  
+  self.image = love.graphics.newImage('img/spr/player.png')
   self.turnTime = 1
   self.time = 0
 end
@@ -26,13 +26,11 @@ function BattlePlayer:update(dt)
 end
 
 function BattlePlayer:draw()
-  -- Draw animations.
   if self.turn then
-    love.graphics.setColor(255, 255, 255)
+    love.graphics.draw(self.image, 320, 160)
   else
-    love.graphics.setColor(127, 127, 127)
+    love.graphics.draw(self.image, 240, 160)
   end
-  love.graphics.rectangle('fill', 240, 240, 32, 32)
 end
 
 function BattlePlayer:startTurn(enemies, action)

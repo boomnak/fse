@@ -11,7 +11,10 @@ elseif vars.SOKevent == 3 then
   talk("Player: Special test?")
   talk("Alexander: A mighty test that is meant to test out only the best of our trainees.")
   talk("Alexander: You must clear out the dungeon south to this kingdom, and retrieve the special item.")
+  talk("Alexander: Take this shield and this sword, they will help.")
   talk("Quest Received: Clear Dungeon!")
+  giveItem('sword')
+  giveItem('shield')
   vars.SOKevent = 4
   --for this event the player has to go and retrieve the treasure at the end of the dungeon and bring it back to alexander
   --picking up the weapon activates SOKevent 5
@@ -74,6 +77,6 @@ elseif vars.SOKevent == 14 then
   talk("Alexander: Now it is up to you to lead our kingdom.")
   vars.SOKevent = 15
   --Summit of Kings event ends here
-elseif vars.SOKevent = 15 then
+elseif vars.SOKevent == 15 then
   talk("What is it my king?")
 end

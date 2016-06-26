@@ -4,25 +4,26 @@ local Class = require 'lib.hump.class'
 
 local Guard = Class({
   -- Set up default stats that apply to all Guards.
-  attack = 2,
-  defence = 1,
-  maxHP = 20,
+  attack = 1,
+  defence = 0,
+  maxHP = 5,
   -- Drops is a table of the items an enemy could drop when it dies.
   drops = {
     -- Items consists of tables with both an item name and percent
     -- chance of it being dropped.
     items = {
-      {name = 'hpotion', chance = 0.5},
-      {name = 'shield', chance = 0.5}
+      {name = 'hpotion', chance = 0.25},
     },
     gold = 10, -- Drops 10 gold.
-    exp = 5, -- Gives the player 3 experience.
+    exp = 3.5,
   },
 })
 
 function Guard:init(game, battle)
   self.game = game
   self.battle = battle
+  
+  self.image = love.graphics.newImage('img/spr/guard.png')
   
   self.turnTime = 1
   self.time = 0
@@ -43,11 +44,10 @@ end
 
 function Guard:draw()
   if self.turn then
-    love.graphics.setColor(200, 200, 200)
+    love.graphics.draw(self.image, 400, 160)
   else
-    love.graphics.setColor(100, 100, 100)
+    love.graphics.draw(self.image, 480, 160)
   end
-  love.graphics.circle('fill', 480, 20, 20)
 end
 
 function Guard:startTurn(player)

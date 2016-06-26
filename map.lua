@@ -17,7 +17,7 @@ function Map:init(game, path)
     if object.properties.entity then
       -- Get the class of the entity from the map file.
       local entityClass = love.filesystem.load(
-        'entity/' .. object.properties.file .. '.lua')()
+        'entity/' .. object.properties.file)()
       -- Create a new instance of the entity class.
       game.entities[#game.entities+1] = entityClass(game, object)
       

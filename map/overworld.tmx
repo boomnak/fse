@@ -1,70 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="27" height="22" tilewidth="32" tileheight="32" nextobjectid="57">
- <tileset firstgid="1" name="RPG Basic" tilewidth="32" tileheight="32" tilecount="204" columns="17">
-  <image source="../img/tst/rpgtk.png" width="544" height="384"/>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="6">
+ <tileset firstgid="1" name="Fullset 01" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../img/Fullset 01.png" width="512" height="512"/>
  </tileset>
- <tileset firstgid="205" name="Special" tilewidth="32" tileheight="32" tilecount="3" columns="3">
-  <image source="../img/tst/triggers.png" trans="ffffff" width="96" height="32"/>
+ <tileset firstgid="257" name="fade" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../img/tst/fade.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="261" name="triggers" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../img/tst/triggers.png" width="96" height="32"/>
   <tile id="0">
    <properties>
     <property name="collidable" value="true"/>
-    <property name="solid" value="true"/>
+    <property name="solid" value=""/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="ladder" value="true"/>
    </properties>
   </tile>
  </tileset>
- <tileset firstgid="208" name="entities" tilewidth="32" tileheight="32" tilecount="2" columns="2">
-  <image source="../img/tst/entities.png" width="64" height="32"/>
+ <tileset firstgid="264" name="minitree" tilewidth="32" tileheight="32" tilecount="16" columns="4">
+  <image source="../img/tst/minitree.png" width="128" height="128"/>
  </tileset>
- <layer name="ground" width="27" height="22">
+ <tileset firstgid="280" name="tower" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../img/tower.png" width="64" height="64"/>
+ </tileset>
+ <tileset firstgid="284" name="castle" tilewidth="32" tileheight="32" tilecount="4" columns="2">
+  <image source="../img/castle.png" width="64" height="64"/>
+ </tileset>
+ <layer name="grass" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJzV1EEKgCAQBVAL5lxFBNFhOkkdqqPlIkEGdf4fJGjxd6Ov0UkJIQwqRyO6tpQpZixESAsx15j5zWZYiIf0l9wts1gPdfSZSsNjrdpeiJWbt/HtQlqWyVhpnyVm72BdgJXPf6nGY/eyEO+vVr7+BL3av9yjv1pta+ZZy6q1rNYd9LKsu2YsPR/e82PWsBbTi9fynNvXFvrOe+eutM5655G+kPnTb9QDMekfbA==
+   eJyN0rcOwzAMBFDl/z9FKd6V4l1pu1O8O8W70y6ACDAH0fHwBh3EAyjIO+fGMIEpzKAAr3JPZ32voCzAHBawhBWUlIcBnXKOsIYNbGEHe8pj6gx/Or8qOMARTnCGmvIqdUpvbh/RwAWucIM7tJQ3qVN6c/uIDh7whBe8wY1+8y51Sm9uH9H3zvrcqd7cPmLIG4uyZx8RjT5vsPrq9H7WXCCSWX1tej+eE5HorK+T50RFOLM6eU40hDOrj+f0fS2XWf/Wou9bGXd+AJN68Kw=
   </data>
  </layer>
- <objectgroup name="object" visible="0">
-  <object id="49" x="416" y="352" width="32" height="32">
+ <layer name="locations" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBj6QIaRgUGWkXrmyQHNkqeieSMFiIywMKOVfyWA5kpS0WwpoFnSwyRuAILcAQ8=
+  </data>
+ </layer>
+ <layer name="trees" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgwlwMFLXPFFGwmZyMGLHuMzDZiaMz8GIUIOOsZmLTR6fGfjMJVUfJRjZv9SwH1t4DzbzsGF6hTcMAwA1mQtt
+  </data>
+ </layer>
+ <layer name="treetops" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFgwnwMzIwCDFS10xePGYKM0LsxIbxuQPZTGQz+AjowWcuLxFm4NPHT+Vwwwc4gXZxo2EuCuwXw6JXfBCZx4slfZAaT9QAADNkArw=
+  </data>
+ </layer>
+ <objectgroup name="objects" visible="0">
+  <object id="2" x="288" y="64" width="64" height="64">
    <properties>
     <property name="event" value=""/>
-    <property name="file" value="test.lua"/>
-    <property name="runOnce" value=""/>
+    <property name="warp" value="'throneroom',128,288"/>
    </properties>
   </object>
-  <object id="50" x="480" y="224" width="32" height="32">
+  <object id="3" x="288" y="352" width="64" height="64">
    <properties>
-    <property name="code" value="teleport('castle',32,224)"/>
     <property name="event" value=""/>
-    <property name="runOnKey" value="interact"/>
+    <property name="warp" value="'dungeon1',32,352"/>
    </properties>
   </object>
-  <object id="53" x="320" y="160" width="32" height="32">
+  <object id="4" x="224" y="224" width="32" height="32">
    <properties>
-    <property name="code" value="talk('Entering cave...')"/>
     <property name="event" value=""/>
-    <property name="oncePerCollision" value=""/>
+    <property name="warp" value="'forest1',64,320"/>
+   </properties>
+  </object>
+  <object id="5" x="224" y="320" width="32" height="32">
+   <properties>
+    <property name="event" value=""/>
+    <property name="warp" value="'forest2',864,192"/>
    </properties>
   </object>
  </objectgroup>
- <layer name="over" width="27" height="22">
+ <layer name="fadelr" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20Hb6AAAHgMCUgAAQ==
+   eJxjZGSgGmACmsU4at6oeaPmjZpHI/MAsrYATA==
   </data>
  </layer>
- <layer name="fadeoutud" width="27" height="22">
+ <layer name="fadeud" width="20" height="15">
   <data encoding="base64" compression="zlib">
-   eJztwzENAAAIA7D5FzWsoQKuNmmT9CkAwLV5vGcOKDA=
+   eJxjZmRgYKYiHgWjYBSMAhhgYaQuBgCAHwC1
   </data>
  </layer>
- <layer name="fadeoutlr" width="27" height="22">
+ <layer name="special" width="20" height="15" visible="0" opacity="0.5">
   <data encoding="base64" compression="zlib">
-   eJzbw0AfsBeI94zaNWrXqF2jdo3aNWrXqF2jdg0juwCnviBn
-  </data>
- </layer>
- <layer name="special" width="27" height="22" visible="0" opacity="0.5">
-  <properties>
-   <property name="collidable" value="false"/>
-   <property name="special" value="true"/>
-  </properties>
-  <data encoding="base64" compression="zlib">
-   eJzV0cENACAIA0D2382d/BoTpC2IkcSXwCEOMxuNZw+lBq1n8yMr6sN4bGR2ifRkrTWXnR2ZWdmR1y9yui3FrrKU//rFQszXVsZDDNbyciqt070XyszM/pia7D/dsJS9dVvqXMqbWKf6TNU+Ofg=
+   eJxjZWRgYKUyphYYNY865hEyk9h4hIlhk8cnh8st6Gxy0hOxaqmdPtH9S6nZ+MJ7sJhHy7xOLAAABWYBzw==
   </data>
  </layer>
 </map>

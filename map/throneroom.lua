@@ -8,7 +8,7 @@ return {
   height = 15,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 9,
+  nextobjectid = 10,
   properties = {},
   tilesets = {
     {
@@ -169,6 +169,22 @@ return {
       data = "eJxjYBgFo2B4ghlU1rOCDPPI0TMKcAMA7N0CgQ=="
     },
     {
+      type = "tilelayer",
+      name = "fg",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFo2AUFFHZvCYqmzcKIAAAcD8A9Q=="
+    },
+    {
       type = "objectgroup",
       name = "object",
       visible = false,
@@ -177,24 +193,6 @@ return {
       offsety = 0,
       properties = {},
       objects = {
-        {
-          id = 1,
-          name = "kingathens",
-          type = "",
-          shape = "rectangle",
-          x = 416,
-          y = 288,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["event"] = "",
-            ["file"] = "kingathens.lua",
-            ["runOnLoad"] = "",
-            ["runOnce"] = ""
-          }
-        },
         {
           id = 3,
           name = "",
@@ -209,7 +207,7 @@ return {
           properties = {
             ["event"] = "",
             ["runOnKey"] = "up",
-            ["warp"] = "'overworld',32,32"
+            ["warp"] = "'overworld',288,128"
           }
         },
         {
@@ -228,40 +226,24 @@ return {
             ["runOnKey"] = "up",
             ["warp"] = "'guardhouse',64,384"
           }
+        },
+        {
+          id = 9,
+          name = "kingathens",
+          type = "",
+          shape = "rectangle",
+          x = 448,
+          y = 288,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["entity"] = "",
+            ["file"] = "kingathens.lua"
+          }
         }
       }
-    },
-    {
-      type = "tilelayer",
-      name = "king",
-      x = 0,
-      y = 0,
-      width = 20,
-      height = 15,
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJxjYBgFo2Bkg5PMDAynmKlnHicLAwMXC/XMGwUIAADR1AG1"
-    },
-    {
-      type = "tilelayer",
-      name = "fg",
-      x = 0,
-      y = 0,
-      width = 20,
-      height = 15,
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJxjYBgFo2AUFFHZvCYqmzcKIAAAcD8A9Q=="
     },
     {
       type = "tilelayer",

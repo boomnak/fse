@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="9">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="10">
  <tileset firstgid="1" name="Fullset 01" tilewidth="32" tileheight="32" tilecount="256" columns="16">
   <image source="../img/Fullset 01.png" width="512" height="512"/>
  </tileset>
@@ -44,20 +44,17 @@
    eJxjYBgFo2B4ghlU1rOCDPPI0TMKcAMA7N0CgQ==
   </data>
  </layer>
+ <layer name="fg" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUFFHZvCYqmzcKIAAAcD8A9Q==
+  </data>
+ </layer>
  <objectgroup name="object" visible="0">
-  <object id="1" name="kingathens" x="416" y="288" width="64" height="64">
-   <properties>
-    <property name="event" value=""/>
-    <property name="file" value="kingathens.lua"/>
-    <property name="runOnLoad" value=""/>
-    <property name="runOnce" value=""/>
-   </properties>
-  </object>
   <object id="3" x="96" y="288" width="32" height="64">
    <properties>
     <property name="event" value=""/>
     <property name="runOnKey" value="up"/>
-    <property name="warp" value="'overworld',32,32"/>
+    <property name="warp" value="'overworld',288,128"/>
    </properties>
   </object>
   <object id="4" x="512" y="288" width="32" height="64">
@@ -67,17 +64,13 @@
     <property name="warp" value="'guardhouse',64,384"/>
    </properties>
   </object>
+  <object id="9" name="kingathens" x="448" y="288" width="32" height="64">
+   <properties>
+    <property name="entity" value=""/>
+    <property name="file" value="kingathens.lua"/>
+   </properties>
+  </object>
  </objectgroup>
- <layer name="king" width="20" height="15">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2Bkg5PMDAynmKlnHicLAwMXC/XMGwUIAADR1AG1
-  </data>
- </layer>
- <layer name="fg" width="20" height="15">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFo2AUFFHZvCYqmzcKIAAAcD8A9Q==
-  </data>
- </layer>
  <layer name="fadeud" width="20" height="15">
   <data encoding="base64" compression="zlib">
    eJxjY2RgYKMiHgWjYBSMAhhgZ6QuBgCaXgEt

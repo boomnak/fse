@@ -13,11 +13,13 @@ Player.filterType = 'cross'
 Player.name = 'player'
 
 function Player:init(game, entity)
-  --self.image = love.graphics.newImage()
+  self.imager = love.graphics.newImage('img/spr/player.png')
+  self.imagel = love.graphics.newImage('img/spr/playerleft.png')
+  self.image = self.imager
   -- Position.
   self.pos = Vector(entity.x, entity.y)
   -- Dimensions
-  self.dim = Vector(entity.width, entity.height)
+  self.dim = Vector(self.image:getWidth(), self.image:getHeight())
   self.hitbox = { pos = self.pos:clone(), dim = self.dim:clone() }
   self.speed = 100 -- running speed, in m/s
   self.ySpeed = 0
@@ -37,8 +39,13 @@ function Player:update(dt)
       GS.push(Menu, self.game)
     end
     
-    if InputMan:down('left') then goal.x = goal.x - self.speed*dt end
-    if InputMan:down('right') then goal.x = goal.x + self.speed*dt end
+    if InputMan:down('left') then 
+      goal.x = goal.x - self.speed*dt
+      self.image = self.imagel
+    elseif InputMan:down('right') then
+      goal.x = goal.x + self.speed*dt
+      self.image = self.imager
+    end
     
     if self.canJump and love.keyboard.isDown('space') then
       self.ySpeed = -320
@@ -68,10 +75,7 @@ function Player:update(dt)
 end
 
 function Player:draw()
-  --love.graphics.draw(self.image, self.pos.x, self.pos.y)
-  love.graphics.setColor(255, 255, 255, 255)
-  love.graphics.rectangle('fill',
-    math.floor(self.pos.x), math.floor(self.pos.y), self.dim.x, self.dim.y)
+  love.graphics.draw(self.image, math.floor(self.pos.x), math.floor(self.pos.y))
 end
 
 -- filter - Returns the correct collision response type based on the given object.

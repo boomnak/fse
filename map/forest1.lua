@@ -8,7 +8,7 @@ return {
   height = 15,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 6,
+  nextobjectid = 5,
   properties = {},
   tilesets = {
     {
@@ -31,8 +31,46 @@ return {
       tiles = {}
     },
     {
-      name = "fade",
+      name = "Tree0b",
       firstgid = 257,
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "../img/spr/Tree0b.png",
+      imagewidth = 160,
+      imageheight = 352,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 55,
+      tiles = {}
+    },
+    {
+      name = "tree3b",
+      firstgid = 312,
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "../img/spr/tree3b.png",
+      imagewidth = 160,
+      imageheight = 352,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 55,
+      tiles = {}
+    },
+    {
+      name = "fade",
+      firstgid = 367,
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
@@ -51,7 +89,7 @@ return {
     },
     {
       name = "triggers",
-      firstgid = 261,
+      firstgid = 371,
       tilewidth = 32,
       tileheight = 32,
       spacing = 0,
@@ -71,7 +109,7 @@ return {
           id = 0,
           properties = {
             ["collidable"] = "true",
-            ["solid"] = ""
+            ["solid"] = "true"
           }
         },
         {
@@ -82,66 +120,41 @@ return {
           }
         }
       }
-    },
-    {
-      name = "minitree",
-      firstgid = 264,
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "../img/tst/minitree.png",
-      imagewidth = 128,
-      imageheight = 128,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 16,
-      tiles = {}
-    },
-    {
-      name = "tower",
-      firstgid = 280,
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "../img/tower.png",
-      imagewidth = 64,
-      imageheight = 64,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 4,
-      tiles = {}
-    },
-    {
-      name = "castle",
-      firstgid = 284,
-      tilewidth = 32,
-      tileheight = 32,
-      spacing = 0,
-      margin = 0,
-      image = "../img/castle.png",
-      imagewidth = 64,
-      imageheight = 64,
-      tileoffset = {
-        x = 0,
-        y = 0
-      },
-      properties = {},
-      terrains = {},
-      tilecount = 4,
-      tiles = {}
     }
   },
   layers = {
+    {
+      type = "tilelayer",
+      name = "bg",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJyzY2BgsBvFo3gUj+IhgAHptkip"
+    },
+    {
+      type = "tilelayer",
+      name = "dirt",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFo2AUkArCgTgCiCPR2IQwNnNAOB2IM4A4E019JgGMzZx0NPPwYXR14lCMzRxxErEEEKtTEWsAMQAUDxiz"
+    },
     {
       type = "tilelayer",
       name = "grass",
@@ -156,11 +169,11 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJyN0rcOwzAMBFDl/z9FKd6V4l1pu1O8O8W70y6ACDAH0fHwBh3EAyjIO+fGMIEpzKAAr3JPZ32voCzAHBawhBWUlIcBnXKOsIYNbGEHe8pj6gx/Or8qOMARTnCGmvIqdUpvbh/RwAWucIM7tJQ3qVN6c/uIDh7whBe8wY1+8y51Sm9uH9H3zvrcqd7cPmLIG4uyZx8RjT5vsPrq9H7WXCCSWX1tej+eE5HorK+T50RFOLM6eU40hDOrj+f0fS2XWf/Wou9bGXd+AJN68Kw="
+      data = "eJxjYBgFo2AUkApmA/EcJHouEM8D4vlAvACPOC5zqOWewWIOrQAADAkMPw=="
     },
     {
       type = "tilelayer",
-      name = "locations",
+      name = "trees1",
       x = 0,
       y = 0,
       width = 20,
@@ -172,43 +185,11 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYBj6QIaRgUGWkXrmyQHNkqeieSMFiIywMKOVfyWA5kpS0WwpoFnSwyRuAILcAQ8="
-    },
-    {
-      type = "tilelayer",
-      name = "trees",
-      x = 0,
-      y = 0,
-      width = 20,
-      height = 15,
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJxjYBgFgwlwMFLXPFFGwmZyMGLHuMzDZiaMz8GIUIOOsZmLTR6fGfjMJVUfJRjZv9SwH1t4DzbzsGF6hTcMAwA1mQtt"
-    },
-    {
-      type = "tilelayer",
-      name = "treetops",
-      x = 0,
-      y = 0,
-      width = 20,
-      height = 15,
-      visible = true,
-      opacity = 1,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJxjYBgFgwnwMzIwCDFS10xePGYKM0LsxIbxuQPZTGQz+AjowWcuLxFm4NPHT+Vwwwc4gXZxo2EuCuwXw6JXfBCZx4slfZAaT9QAADNkArw="
+      data = "eJzVzMVOQ1EUBdDXCe5SXIu2uM5xK+7uDv8/ZH3AvQmECZxkZU/22Uny/24ulSTzLLDIUur7nQJZSBHFlLDMCqussR7Yi3VKZRnlVFDJBnk22WI7sBfrVMlqaqiljh122WOfg8BerFMv0zTQSBOHHHHMCaeBvVinWbbQShvtnHHOBZdcBfZinQ7ZSRfdZLjmhlvuuA/sxTo9spc++hnggUeeeOYlsBfrDMosOYYY5pU33vngM7AX64zIUcYYZyLw+5Ob9D/FNDPM/nLvr98XcgYlcg=="
     },
     {
       type = "objectgroup",
-      name = "objects",
+      name = "object",
       visible = false,
       opacity = 1,
       offsetx = 0,
@@ -216,19 +197,19 @@ return {
       properties = {},
       objects = {
         {
-          id = 2,
+          id = 1,
           name = "",
           type = "",
           shape = "rectangle",
-          x = 288,
-          y = 64,
-          width = 64,
-          height = 64,
+          x = 0,
+          y = 160,
+          width = 32,
+          height = 256,
           rotation = 0,
           visible = true,
           properties = {
             ["event"] = "",
-            ["warp"] = "'throneroom',128,288"
+            ["warp"] = "'overworld',224,160"
           }
         },
         {
@@ -236,47 +217,15 @@ return {
           name = "",
           type = "",
           shape = "rectangle",
-          x = 288,
-          y = 352,
-          width = 64,
-          height = 64,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["event"] = "",
-            ["warp"] = "'dungeon1',32,352"
-          }
-        },
-        {
-          id = 4,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 224,
-          y = 224,
+          x = 608,
+          y = 64,
           width = 32,
-          height = 32,
+          height = 256,
           rotation = 0,
           visible = true,
           properties = {
             ["event"] = "",
-            ["warp"] = "'forest1',64,320"
-          }
-        },
-        {
-          id = 5,
-          name = "",
-          type = "",
-          shape = "rectangle",
-          x = 224,
-          y = 320,
-          width = 32,
-          height = 32,
-          rotation = 0,
-          visible = true,
-          properties = {
-            ["event"] = "",
-            ["warp"] = "'forest2',864,192"
+            ["warp"] = "'forest2',64,320"
           }
         }
       }
@@ -295,7 +244,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjZGSgGmACmsU4at6oeaPmjZpHI/MAsrYATA=="
+      data = "eJzLZ2SgGigAmpU/at6oeaPmjZpHI/MABK8NMA=="
     },
     {
       type = "tilelayer",
@@ -311,7 +260,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjZmRgYKYiHgWjYBSMAhhgYaQuBgCAHwC1"
+      data = "eJwrZGRgKKQiHgWjYBSMAhgoYqQuBgDtVxHl"
     },
     {
       type = "tilelayer",
@@ -327,7 +276,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjZWRgYKUyphYYNY865hEyk9h4hIlhk8cnh8st6Gxy0hOxaqmdPtH9S6nZ+MJ7sJhHy7xOLAAABWYBzw=="
+      data = "eJwrZmRgKKYyphagtnkwMwezeaNgaABq5Q1q5ZvBZg6tAABmchXB"
     }
   }
 }

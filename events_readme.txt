@@ -50,6 +50,7 @@ battle(enemies) -- Starts a battle against 'enemies'. enemies should be a table
 getMapDimensions() -- Returns the width and height of the current map.
 
 giveItem(item) -- Give the player the item.
+changeGold(gold) -- Change the player's gold by gold amount.
 
 fadeout(time) -- Fade screen to black over 'time'. If time=0, do it instantly.
 fadein(time) -- Fade screen in from black over 'time'. If time=0, fadein instantly.

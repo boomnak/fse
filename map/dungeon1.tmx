@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="32" tileheight="32" nextobjectid="8">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="32" tileheight="32" nextobjectid="13">
  <tileset firstgid="1" name="triggers" tilewidth="32" tileheight="32" tilecount="3" columns="3">
   <image source="../img/tst/triggers.png" width="96" height="32"/>
   <tile id="0">
@@ -23,66 +23,40 @@
  </tileset>
  <layer name="bg" width="30" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYMAEK2iMcYHhbi+p7sLnTlLAQNtLrrsoDeeBspda6ZKQ+0m1F5f+gbKX1uE0WO0l1xx6pcuBtncgAABTUKax
+   eJxjYBgcQJoAplQ/NnPI0UOqXkrspUQfun5CfqKFe2llLzGAFHtJkaOmvcTIk5s2CLmNGLfjs5fcvEIOoNRecgEhewnpoxSjm0WKmym1d6QBABNcFdY=
   </data>
  </layer>
  <layer name="dark" width="30" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYMAEv2iMcYHhbi+p7sLnTlLAQNtLrrsoDeeBspda6ZKQ+0m1F5f+gbKX1uE0WO0l1xx6pcuBtncgAADybPgN
+   eJxjYBgc4DcBTKl+bOaQo4dUvZTYS4k+dP2E/EQL99LKXmIAKfaSIkdNe4mRJzdtEHIbMW7HZy+5eYUcQKm95AJC9hLSRylGN4sUN1Nq70gDAF0zyvY=
   </data>
  </layer>
  <layer name="walls" width="30" height="15">
   <data encoding="base64" compression="zlib">
-   eJybwcDAMAMN0xqg2zdS7CXVXfjcSo4ecu2llVsJuYtUMFjsJVc/ueFKrjsH2l5SAanuHaz2kmsOue6mlz5q2TsQGADD1HT5
+   eJyLYWBg0BkAHIPGJwQImUcsQLaXWECJfZTYi243OQBmLz5zCcmTAmBxS0t78aUpcuwlRY6a9hIjjw+QYi8x/iLFXlyAHHuJzdvk2ktuGUXIXkrLIkIA3V5S3EypvSMNAwB6Pjhl
   </data>
  </layer>
- <layer name="ladders" width="30" height="15">
+ <layer name="walltop" width="30" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgFQw3sGEL2UsOtI81ecuwgxV5y3TiY7KWHflrYOxTSx1CzlxoAAORcD9E=
+   eJxjYBgFIxFwo2Fqm0tLgO52Su3Dp58WYUSOO2htNj38h89ufJga5tMC0DvMCIUHLfIxsWYSikNi8EACABHDAjI=
   </data>
  </layer>
- <layer name="doors" width="30" height="15">
+ <layer name="ladder" width="30" height="15">
   <data encoding="base64" compression="zlib">
-   eJxjYBgZYP4A2bt+gOwdBaNgFAwPMFp20R4AADG3Ap0=
+   eJxjYBgFIw3sGLV31N4hZC8hcwfKXlqBkWbvYAAAW8EH6Q==
   </data>
  </layer>
  <objectgroup name="object" visible="0">
-  <object id="1" x="896" y="32" width="32" height="64">
+  <object id="11" x="0" y="288" width="32" height="128">
    <properties>
     <property name="event" value=""/>
-    <property name="runOnKey" value="up"/>
-    <property name="warp" value="'oldlibrary',128,320"/>
+    <property name="warp" value="'overworld',256,352"/>
    </properties>
   </object>
-  <object id="2" x="32" y="384" width="32" height="64">
+  <object id="12" x="928" y="32" width="32" height="96">
    <properties>
     <property name="event" value=""/>
-    <property name="runOnKey" value="up"/>
-    <property name="warp" value="'throneroom',480,288"/>
-   </properties>
-  </object>
-  <object id="3" x="896" y="384" width="32" height="64">
-   <properties>
-    <property name="entity" value="true"/>
-    <property name="file" value="alexander.lua"/>
-   </properties>
-  </object>
-  <object id="4" x="736" y="160" width="32" height="64">
-   <properties>
-    <property name="entity" value=""/>
-    <property name="file" value="guard.lua"/>
-   </properties>
-  </object>
-  <object id="6" x="192" y="256" width="32" height="64">
-   <properties>
-    <property name="entity" value=""/>
-    <property name="file" value="guard.lua"/>
-   </properties>
-  </object>
-  <object id="7" x="352" y="32" width="32" height="64">
-   <properties>
-    <property name="entity" value=""/>
-    <property name="file" value="guard.lua"/>
+    <property name="warp" value="'dungeon2',,"/>
    </properties>
   </object>
  </objectgroup>
@@ -98,7 +72,7 @@
  </layer>
  <layer name="special" width="30" height="15" visible="0" opacity="0.5">
   <data encoding="base64" compression="zlib">
-   eJzNk0EKACAMwzb8/589CUOYthPpArsIJbnoZuZN7jdqL9uVtY7C5sW7qHhPm1tX9CJ08bKw/2RsO9Sb7VVelGpvRy/7h5jerDu+Iai9ipvYnQEg
+   eJzFlFEKACEIRJXuf+f93JBRx/GjgShIe2am2S8nRybW34FPJ2THxFSdN7F1sFaYU18Ps8q9dax/U5Ubc4W4WVwsl6mpCbeKeVLP2/uquWa46F7VfsdFilxkq+T3LLmTvjThdnlVlXG7/7pl31y252f26nilD4iaALo=
   </data>
  </layer>
 </map>

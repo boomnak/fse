@@ -346,6 +346,11 @@ function SB.giveItem(item)
   pitems[#pitems + 1] = item
 end
 
+function SB.changeGold(gold)
+  -- Change the amount of gold the player has. Used for shops.
+  Event.game.player.gold = Event.game.player.gold + gold
+end
+
 function SB.addEventFromFile(file, runOnLoad)
   -- Add a new event from a file.
   Event:addNew(file, runOnLoad)

@@ -66,6 +66,9 @@ function Menu:update(dt)
       if self.currOption < 1 then
         self.currOption = #self.options
       end
+    elseif InputMan:down('menu') then
+      -- If the player hits escape, resume the game.
+      GS.pop()
     end
   end
   

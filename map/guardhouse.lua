@@ -8,7 +8,7 @@ return {
   height = 15,
   tilewidth = 32,
   tileheight = 32,
-  nextobjectid = 3,
+  nextobjectid = 8,
   properties = {},
   tilesets = {
     {
@@ -131,7 +131,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJybwcDAMAMN0xqg2zdS7CXVXfjcSayewWAvue4iFQwWe8nVT264kuvOgbaXVECqewerveSaQ6676aWPWvYOBAYAlQd0YQ=="
+      data = "eJybwcDAMAMN0xqg2zdS7CXVXfjcSo4ecu2llVsJuYtUMFjsJVc/ueFKrjsH2l5SAanuHaz2kmsOue6mlz5q2TsQGADD1HT5"
     },
     {
       type = "tilelayer",
@@ -207,6 +207,70 @@ return {
             ["runOnKey"] = "up",
             ["warp"] = "'throneroom',480,288"
           }
+        },
+        {
+          id = 3,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 896,
+          y = 384,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["entity"] = "true",
+            ["file"] = "alexander.lua"
+          }
+        },
+        {
+          id = 4,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 736,
+          y = 160,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["entity"] = "",
+            ["file"] = "guard.lua"
+          }
+        },
+        {
+          id = 6,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 256,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["entity"] = "",
+            ["file"] = "guard.lua"
+          }
+        },
+        {
+          id = 7,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 352,
+          y = 32,
+          width = 32,
+          height = 64,
+          rotation = 0,
+          visible = true,
+          properties = {
+            ["entity"] = "",
+            ["file"] = "guard.lua"
+          }
         }
       }
     },
@@ -256,7 +320,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJzNkzEKADAIAyP+/89dpWCbFEoMZBHC3WIAiCH9HTdX9eo8U9i4uafNzatymUzhqlH/JLcdy+32Li6bV9+JXPWHFN/Ou96YuLmOLtNBAR8="
+      data = "eJzNk0EKACAMwzb8/589CUOYthPpArsIJbnoZuZN7jdqL9uVtY7C5sW7qHhPm1tX9CJ08bKw/2RsO9Sb7VVelGpvRy/7h5jerDu+Iai9ipvYnQEg"
     }
   }
 }

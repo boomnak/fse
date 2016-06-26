@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="15" tilewidth="32" tileheight="32" nextobjectid="5">
+ <tileset firstgid="1" name="Fullset 01" tilewidth="32" tileheight="32" tilecount="256" columns="16">
+  <image source="../img/Fullset 01.png" width="512" height="512"/>
+ </tileset>
+ <tileset firstgid="257" name="Tree0b" tilewidth="32" tileheight="32" tilecount="55" columns="5">
+  <image source="../img/spr/Tree0b.png" width="160" height="352"/>
+ </tileset>
+ <tileset firstgid="312" name="tree3b" tilewidth="32" tileheight="32" tilecount="55" columns="5">
+  <image source="../img/spr/tree3b.png" width="160" height="352"/>
+ </tileset>
+ <tileset firstgid="367" name="fade" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../img/tst/fade.png" width="128" height="32"/>
+ </tileset>
+ <tileset firstgid="371" name="triggers" tilewidth="32" tileheight="32" tilecount="3" columns="3">
+  <image source="../img/tst/triggers.png" width="96" height="32"/>
+  <tile id="0">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="solid" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="collidable" value="true"/>
+    <property name="ladder" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="bg" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJyzY2BgsBvFo3gUj+IhgAHptkip
+  </data>
+ </layer>
+ <layer name="dirt" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUkArCgTgCiCPR2IQwNnNAOB2IM4A4E019JgGMzZx0NPPwYXR14lCMzRxxErEEEKtTEWsAMQAUDxiz
+  </data>
+ </layer>
+ <layer name="grass" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUkApmA/EcJHouEM8D4vlAvACPOC5zqOWewWIOrQAADAkMPw==
+  </data>
+ </layer>
+ <layer name="trees1" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzVzMVOQ1EUBdDXCe5SXIu2uM5xK+7uDv8/ZH3AvQmECZxkZU/22Uny/24ulSTzLLDIUur7nQJZSBHFlLDMCqussR7Yi3VKZRnlVFDJBnk22WI7sBfrVMlqaqiljh122WOfg8BerFMv0zTQSBOHHHHMCaeBvVinWbbQShvtnHHOBZdcBfZinQ7ZSRfdZLjmhlvuuA/sxTo9spc++hnggUeeeOYlsBfrDMosOYYY5pU33vngM7AX64zIUcYYZyLw+5Ob9D/FNDPM/nLvr98XcgYlcg==
+  </data>
+ </layer>
+ <objectgroup name="object" visible="0">
+  <object id="1" x="0" y="160" width="32" height="256">
+   <properties>
+    <property name="event" value=""/>
+    <property name="warp" value="'overworld',224,160"/>
+   </properties>
+  </object>
+  <object id="3" x="608" y="64" width="32" height="256">
+   <properties>
+    <property name="event" value=""/>
+    <property name="warp" value="'forest2',64,320"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer name="fadelr" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzLZ2SgGigAmpU/at6oeaPmjZpHI/MABK8NMA==
+  </data>
+ </layer>
+ <layer name="fadeud" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJwrZGRgKKQiHgWjYBSMAhgoYqQuBgDtVxHl
+  </data>
+ </layer>
+ <layer name="special" width="20" height="15" visible="0" opacity="0.5">
+  <data encoding="base64" compression="zlib">
+   eJwrZmRgKKYyphagtnkwMwezeaNgaABq5Q1q5ZvBZg6tAABmchXB
+  </data>
+ </layer>
+</map>

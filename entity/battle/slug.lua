@@ -12,7 +12,7 @@ local Slug = Class({
     -- Items consists of tables with both an item name and percent
     -- chance of it being dropped.
     items = {
-      {name = 'hpotion', chance = 0.5}
+      {name = 'hpotion', chance = 0.25}
     },
     gold = 10, -- Drops 10 gold.
     exp = 3, -- Gives the player 3 experience.
@@ -22,6 +22,8 @@ local Slug = Class({
 function Slug:init(game, battle)
   self.game = game
   self.battle = battle
+  
+  self.image = love.graphics.newImage('img/slug.png')
   
   self.turnTime = 1
   self.time = 0
@@ -40,9 +42,12 @@ function Slug:update(dt)
   end
 end
 
-function Slug:draw(enemyNum)
-  love.graphics.setColor(0, (self.turn and 255 or 127), 0)
-  love.graphics.circle('fill', 480, 20, 20)
+function Slug:draw()
+  if self.turn then
+    love.graphics.draw(self.image, 400, 192)
+  else
+    love.graphics.draw(self.image, 480, 192)
+  end
 end
 
 function Slug:startTurn(player)

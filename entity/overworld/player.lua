@@ -13,10 +13,10 @@ Player.filterType = 'cross'
 Player.name = 'player'
 
 function Player:init(game, entity)
-  --self.image = love.graphics.newImage()
+  self.image = love.graphics.newImage('img/spr/player.png')
   self.pos = Vec(entity.x, entity.y)
   -- Dimensions
-  self.dim = Vec(entity.width, entity.height)
+  self.dim = Vec(self.image:getWidth(), self.image:getHeight())
   self.hitbox = { pos = self.pos:clone(), dim = self.dim:clone() }
   self.speed = 100 -- running speed, in m/s
   
@@ -49,9 +49,7 @@ function Player:update(dt)
 end
 
 function Player:draw()
-  --love.graphics.draw(self.image, self.pos.x, self.pos.y)
-  love.graphics.rectangle('fill',
-    math.floor(self.pos.x), math.floor(self.pos.y), self.dim.x, self.dim.y)
+  love.graphics.draw(self.image, math.floor(self.pos.x), math.floor(self.pos.y))
 end
 
 -- filter - Returns the correct collision response type based on a given object.

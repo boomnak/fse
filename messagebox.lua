@@ -11,6 +11,7 @@ function MessageBox:init(game)
   self.dt = 0
   self.paused = false
   self.visible = true
+  self.lineLength = 62
 end
 
 function MessageBox:update(dt)
@@ -45,6 +46,16 @@ function MessageBox:draw()
 end
 
 function MessageBox:addText(text)
+  -- If there is too much text in one line, split it up.
+  if text:len() > self.lineLength then
+    while text:len() > self.lineLength do
+      newLine = text:sub(1, self.lineLength)
+      text = text:sub(self.lineLength + 1)
+      
+      self.textLines[#self.textLines + 1] = newLine
+    end
+  end
+  
   self.textLines[#self.textLines + 1] = text
 end
 
