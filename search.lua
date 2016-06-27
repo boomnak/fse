@@ -1,4 +1,8 @@
---
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 13, 2016
+-- file:        search.lua
+-- teacher:     Mr. Sarros
+-- Contains implementations of the searching algorithms.
 
 local Search = {}
 

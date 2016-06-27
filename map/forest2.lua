@@ -169,7 +169,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYMAORKiAyQUDYScp9mJTT28wai997KO1vbRKy+TYSwhIAbE0EMtQ2Vxi7dQhIA+zT4xCu9HttMEirwXE2lB5atgrhWavNxD7EGEnzF5y7BaDmolsLoyGuQdZThqHvWIMuNMwLoxsLsi/1gyQcNbCgpH9LEYhRjZPBymcATh0E1g="
+      data = "eJxjYMAEIlTEpAJ620eO3djU0xuM2ksf+2htL63SMjn2EgJSQCwNxDJUNpdYO3UIyMPsE6PQbnQ7bbDIawGxNlSeGvZKodnrDcQ+RNgJs5ccu8WgZiKbC6Nh7kGWk8ZhrxgD7jSMCyObC/KvNQMknLWwYGQ/i1GIkc3TQQpnAMpjE5Q="
     },
     {
       type = "tilelayer",
@@ -372,7 +372,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjZGBgYMSDyQH4zCPGXGLksZlHrnvxmYvP7ZSGEyVg1F762Edre6md9yixlxQ91DSXGDtJdRM1yi9K5OltJ7FqiFVPavwRW3bSIuyoAQCMJwBo"
+      data = "eJxjZGBgYMSDyQH4zCNkLjH24jKPXPfiMxef2ykNJ0rAqL30sY/W9lI771FiLyl6qGkuMXaS6iZqlF+UyNPbTmLVEKue1PgjtuykRdhRAwAAkp8AaQ=="
     }
   }
 }

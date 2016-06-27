@@ -101,6 +101,25 @@ return {
       terrains = {},
       tilecount = 945,
       tiles = {}
+    },
+    {
+      name = "fade",
+      firstgid = 1295,
+      tilewidth = 32,
+      tileheight = 32,
+      spacing = 0,
+      margin = 0,
+      image = "../img/tst/fade.png",
+      imagewidth = 128,
+      imageheight = 32,
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      properties = {},
+      terrains = {},
+      tilecount = 4,
+      tiles = {}
     }
   },
   layers = {
@@ -201,22 +220,6 @@ return {
       data = "eJxjYBgFo2BkgAhGBoZIIA4AYnfGgXbNKCAHAABHqgFN"
     },
     {
-      type = "tilelayer",
-      name = "special",
-      x = 0,
-      y = 0,
-      width = 20,
-      height = 15,
-      visible = false,
-      opacity = 0.5,
-      offsetx = 0,
-      offsety = 0,
-      properties = {},
-      encoding = "base64",
-      compression = "zlib",
-      data = "eJxjYBgFlABGRupjartt1LzBZd5gTCtDBQAA6MwAaQ=="
-    },
-    {
       type = "objectgroup",
       name = "object",
       visible = false,
@@ -260,6 +263,54 @@ return {
       encoding = "base64",
       compression = "zlib",
       data = "eJxjYBgFo2BkggfMDAwPmalnnjwLA4MCC/XMGwWYAABqVwIP"
+    },
+    {
+      type = "tilelayer",
+      name = "fadelr",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJzjZ2WgGhAAmsU/at6oeaPmjZpHI/MAqGECaA=="
+    },
+    {
+      type = "tilelayer",
+      name = "fadeud",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJwTZGVgEKQiHgWjYBSMAhgQYqUuBgAdCAOF"
+    },
+    {
+      type = "tilelayer",
+      name = "special",
+      x = 0,
+      y = 0,
+      width = 20,
+      height = 15,
+      visible = false,
+      opacity = 0.5,
+      offsetx = 0,
+      offsety = 0,
+      properties = {},
+      encoding = "base64",
+      compression = "zlib",
+      data = "eJxjYBgFlABGRupjartt1LzBZd5gTCtDBQAA6MwAaQ=="
     }
   }
 }

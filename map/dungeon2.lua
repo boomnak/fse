@@ -225,7 +225,7 @@ return {
       properties = {},
       encoding = "base64",
       compression = "zlib",
-      data = "eJxjYaAuYBk1b9S8UfNGzaOReQCasAA9"
+      data = "eJxjYaAeYAVillHzRs0bNW/UPBqZBwA/+wCI"
     },
     {
       type = "tilelayer",

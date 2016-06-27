@@ -1,3 +1,8 @@
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 16, 2016
+-- file:        gameover.lua
+-- teacher:     Mr. Sarros
+-- Implements the Gameover state.
 
 local InputMan = require 'inputman'
 

@@ -1,4 +1,8 @@
---
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 13, 2016
+-- file:        battle.lua
+-- teacher:     Mr. Sarros
+-- Implements the Battle state.
 
 local GS = require 'lib.hump.gamestate'
 

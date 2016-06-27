@@ -1,4 +1,7 @@
--- saveload.lua
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 18, 2016
+-- file:        saveload.lua
+-- teacher:     Mr. Sarros
 -- Contains functions for saving and loading of saved games.
 
 local Serpent = require 'lib.serpent.src.serpent'

@@ -1,4 +1,8 @@
---
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 13, 2016
+-- file:        inputman.lua
+-- teacher:     Mr. Sarros
+-- Input Manager, handles player input.
 
 -- TODO: Saving/loading keymaps to/from files.
 

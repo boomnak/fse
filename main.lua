@@ -1,6 +1,5 @@
 -- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
--- student nos: 
--- created:     , 2016
+-- created:     June 13, 2016
 -- file:        main.lua
 -- teacher:     Mr. Sarros
 -- This is the entry file that Love2D loads in order to start the program.

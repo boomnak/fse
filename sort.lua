@@ -1,3 +1,8 @@
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 21, 2016
+-- file:        sort.lua
+-- teacher:     Mr. Sarros
+-- Contains implementations of the sorting algorithms.
 
 local Sort = {}
 

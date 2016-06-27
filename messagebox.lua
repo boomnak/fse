@@ -1,4 +1,8 @@
---
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 13, 2016
+-- file:        messagebox.lua
+-- teacher:     Mr. Sarros
+-- MessageBox class, used to create and draw the messagebox.
 
 local Class = require 'lib.hump.class'
 

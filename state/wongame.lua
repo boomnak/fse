@@ -1,3 +1,8 @@
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 25, 2016
+-- file:        wongame.lua
+-- teacher:     Mr. Sarros
+-- Implements the WonGame state.
 
 local InputMan = require 'inputman'
 

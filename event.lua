@@ -1,4 +1,8 @@
---
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 13, 2016
+-- file:        event.lua
+-- teacher:     Mr. Sarros
+-- Event manager, handles the loading and running of events.
 
 local GS = require 'lib.hump.gamestate'
 

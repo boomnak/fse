@@ -1,6 +1,10 @@
---
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 13, 2016
+-- file:        isptincircle.lua
+-- teacher:     Mr. Sarros
+-- Calculates whether or not a point is in a circle.
 
-local function isPtInCircle(cx,cy,cr,x,y)
+local function isPtInCircle(cx, cy, cr, x, y)
   -- Use the pythagorean theorem to determine the squared distance
   -- between the point and the center of the circle.
   local distSq = (cx-x)^2 + (cy-y)^2

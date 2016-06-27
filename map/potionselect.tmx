@@ -24,6 +24,9 @@
  <tileset firstgid="350" name="Spritesheet Placeholder" tilewidth="32" tileheight="32" margin="32" tilecount="945" columns="63">
   <image source="../img/spr/Spritesheet Placeholder1.png" width="2048" height="512"/>
  </tileset>
+ <tileset firstgid="1295" name="fade" tilewidth="32" tileheight="32" tilecount="4" columns="4">
+  <image source="../img/tst/fade.png" width="128" height="32"/>
+ </tileset>
  <layer name="Tile Layer 1" width="20" height="15">
   <data encoding="base64" compression="zlib">
    eJztkDEOACAIA/v/lf4AH6qDQyXi5MAAySWEUggMAKMpxa/oefXm+cI2LnDXmGieYKJrzrBLiTuy3EOv+hX1Ee/7blrsI85/qHcCV/p39A==
@@ -54,11 +57,6 @@
    eJxjYBgFo2BkgAhGBoZIIA4AYnfGgXbNKCAHAABHqgFN
   </data>
  </layer>
- <layer name="special" width="20" height="15" visible="0" opacity="0.5">
-  <data encoding="base64" compression="zlib">
-   eJxjYBgFlABGRupjartt1LzBZd5gTCtDBQAA6MwAaQ==
-  </data>
- </layer>
  <objectgroup name="object" visible="0">
   <object id="5" x="352" y="288" width="64" height="64">
    <properties>
@@ -72,6 +70,21 @@
  <layer name="entities" width="20" height="15">
   <data encoding="base64" compression="zlib">
    eJxjYBgFo2BkggfMDAwPmalnnjwLA4MCC/XMGwWYAABqVwIP
+  </data>
+ </layer>
+ <layer name="fadelr" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJzjZ2WgGhAAmsU/at6oeaPmjZpHI/MAqGECaA==
+  </data>
+ </layer>
+ <layer name="fadeud" width="20" height="15">
+  <data encoding="base64" compression="zlib">
+   eJwTZGVgEKQiHgWjYBSMAhgQYqUuBgAdCAOF
+  </data>
+ </layer>
+ <layer name="special" width="20" height="15" visible="0" opacity="0.5">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFlABGRupjartt1LzBZd5gTCtDBQAA6MwAaQ==
   </data>
  </layer>
 </map>

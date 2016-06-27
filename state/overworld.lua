@@ -1,10 +1,8 @@
 -- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
--- student nos: 
--- created:     , 2016
+-- created:     June 13, 2016
 -- file:        main.lua
 -- teacher:     Mr. Sarros
--- The Intro state is the initial state in the game, that displays the intro
--- screen, and then the main menu.
+-- Implements the Overworld state.
 
 local bump = require 'lib.bump.bump'
 local Camera = require 'lib.hump.camera'

@@ -1,3 +1,8 @@
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 20, 2016
+-- file:        itemselect.lua
+-- teacher:     Mr. Sarros
+-- Implements the Item Select state.
 
 local GS = require 'lib.hump.gamestate'
 

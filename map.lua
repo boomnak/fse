@@ -1,4 +1,8 @@
---
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 13, 2016
+-- file:        map.lua
+-- teacher:     Mr. Sarros
+-- Handles loading of maps.
 
 local sti = require 'lib.sti'
 local Class = require 'lib.hump.class'

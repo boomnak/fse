@@ -1,3 +1,8 @@
+-- names:       Adam Vandolder, Davanjit Sandhu, Israel Fowler
+-- created:     June 13, 2016
+-- file:        menu.lua
+-- teacher:     Mr. Sarros
+-- Implements the Menu state.
 
 local GS = require 'lib.hump.gamestate'
 

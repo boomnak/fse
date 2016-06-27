@@ -27,11 +27,11 @@ elseif vars.SOKevent == 2 then
   talk("King: I have an idea.")
   talk("King: This crown I am wearing is not, in fact, my normal crown.")
   talk("King: The crown that had been in my family for generations has been stolen by an evil wizard.")
-  talk("King: Every man I have sent out to retreive it has failed.")
+  talk("King: Every man I have sent out to retrieve it has failed.")
   talk("King: You, however, may just be able to accomplish this.")
   talk("King: If you are successful in obtaining my crown, I'll excuse you of your crime.")
   talk("Player: Well, if the alternative is execution, I might as well try.")
-  talk("King: That's the spirit. Now, go and see commander Alexander in the guardhouse for the details.")
+  talk("King: That's the spirit. Now, go and see commander Alexander in the guardhouse behind me for the details.")
   vars.SOKevent = 3
   player.input = true
 
