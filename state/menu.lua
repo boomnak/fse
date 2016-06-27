@@ -45,6 +45,7 @@ function Menu:enter(prev, game)
       name = 'Save',
       action = function()
         SaveLoad.save(game, 'save1.save')
+        GS.pop()
       end
     }
   end
@@ -67,11 +68,11 @@ function Menu:update(dt)
         self.currOption = #self.options
       end
     end
-  end
-  
-  -- If the player presses the interact key, run the current option.
-  if InputMan:down('interact') then
-    self.options[self.currOption].action()
+    
+    -- If the player presses the interact key, run the current option.
+    if InputMan:down('interact') then
+      self.options[self.currOption].action()
+    end
   end
 end
 

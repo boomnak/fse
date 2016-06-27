@@ -33,7 +33,7 @@
  </layer>
  <layer name="walls" width="30" height="15">
   <data encoding="base64" compression="zlib">
-   eJybwcDAMAMN0xqg2zdS7CXVXfjcSo4ecu2llVsJuYtUMFjsJVc/ueFKrjsH2l5SAanuHaz2kmsOue6mlz5q2TsQGADD1HT5
+   eJybwcDAMAMN0xqg2zdS7CXVXfjcSaweatg7g0Z6CLmLVDBY7CVXP7nhSq47B9peUgGp7h2s9pJrDrnuppc+atk7EBgAfJR0+Q==
   </data>
  </layer>
  <layer name="ladders" width="30" height="15">
@@ -98,7 +98,7 @@
  </layer>
  <layer name="special" width="30" height="15" visible="0" opacity="0.5">
   <data encoding="base64" compression="zlib">
-   eJzNk0EKACAMwzb8/589CUOYthPpArsIJbnoZuZN7jdqL9uVtY7C5sW7qHhPm1tX9CJ08bKw/2RsO9Sb7VVelGpvRy/7h5jerDu+Iai9ipvYnQEg
+   eJzNk8EKACAIQ5X+/587BRJYmxRz4CVY73nQzcybzO+ouaxX5jmIzgvu+qPCPXVuXnFfJF24bNg7GVsP5WZ9FRdN1bcjl70hxjfzjm9I1FzFTNglASA=
   </data>
  </layer>
 </map>

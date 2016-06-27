@@ -18,7 +18,7 @@ function ItemSelect:enter(prev, game, player, isBattle)
   self.keyDelay = 0.3
   self.time = 0
   
-  self.currItem = 1
+  self.currItem = 0
   
   if isBattle then
     -- In a battle, only let the player use 1 item.
@@ -39,17 +39,23 @@ function ItemSelect:update(dt)
   if InputMan:down('down') then
     self.currItem = self.currItem + 1
     if self.currItem > #self.items then
-      self.currItem = 1
+      self.currItem = 0
     end
   elseif InputMan:down('up') then
     self.currItem = self.currItem - 1
-    if self.currItem < 1 then
+    if self.currItem < 0 then
       self.currItem = #self.items
     end
   end
   
     -- If the player presses the interact key, use the current item.
   if InputMan:down('interact') then
+    if self.currItem == 0 then
+      -- Resume the previous state.
+      GS.pop(false)
+      return
+    end
+  
     self:useItem()
   
     if self.isBattle then
@@ -78,13 +84,20 @@ function ItemSelect:draw()
   
   -- Loop through and print out the ItemSelect options.
   love.graphics.setColor(255, 255, 255)
-  for i = 1, #self.items do
-    if self.currItem == i then
+  for i = 0, #self.items do
+    if i == 0 then
+      -- Print out the 'Resume' option.
+      if self.currItem == 0 then
+        love.graphics.print('> Resume', self.game.width/4, self.game.height/4)
+      else
+        love.graphics.print('Resume', self.game.width/4, self.game.height/4)
+      end
+    elseif self.currItem == i then
       love.graphics.print('> ' .. self.items[i],
-        self.game.width/4, self.game.height/4 + 20*(i-1))
+        self.game.width/4, self.game.height/4 + 20*i)
     else
       love.graphics.print(self.items[i],
-        self.game.width/4, self.game.height/4 + 20*(i-1))
+        self.game.width/4, self.game.height/4 + 20*i)
     end
   end
   

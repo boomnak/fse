@@ -38,7 +38,7 @@ function MessageBox:draw()
   end
   
   if self.paused then
-    love.graphics.print('Press key to continue...', self.game.width/2, self.game.height/4 - 20)
+    love.graphics.print('Press c to continue...', self.game.width/2, self.game.height/4 - 20)
   end
   
   -- Reset the color.

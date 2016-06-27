@@ -49,7 +49,8 @@ function Intro:update(dt)
   if suit.Button('Play Game', suit.layout:row(300, 30)).hit then
     -- Go to the game's starting map.
     self.game:switchMap('potionselect', 192, 288)
-  elseif suit.Button('Load', suit.layout:row(300, 30)).hit then
+  elseif love.filesystem.exists('save1.save')
+      and suit.Button('Load', suit.layout:row(300, 30)).hit then
     SaveLoad.load(self.game, 'save1.save')
   end
 end
